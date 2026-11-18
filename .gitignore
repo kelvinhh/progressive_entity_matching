@@ -71,3 +71,7 @@ results/tmp/
 tmp/
 temp/
 *.tmp
+
+# Imported reference archives remain local; fetch upstream from its cited URL.
+references/upstream/
+references/papers/*.pdf

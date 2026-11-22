@@ -1,0 +1,201 @@
+{
+  "reference_repository": "AI-team-UoA/pyJedAI",
+  "reference_commit": "eb446095f921af3207bbefd570cc65e818194419",
+  "source_path": "src/pyjedai/evaluation.py",
+  "source_sha256": "a2dae4f4916f46bc67417ddc611bc4f82beaba05e75a819bb679eee6315d659a",
+  "verified_cases": 40,
+  "max_absolute_error_tolerance": 1e-12,
+  "scheduler_source_sha256": "cbe46ce9b5ac4a024c1b12c4fbc04c1194b2155a815977a6af9824031d49ae2e",
+  "scheduling_fixture": {
+    "EC": {
+      "agrees_on_fixture": true,
+      "ours": [
+        [
+          "0",
+          "3"
+        ],
+        [
+          "1",
+          "5"
+        ],
+        [
+          "1",
+          "6"
+        ],
+        [
+          "2",
+          "7"
+        ],
+        [
+          "0",
+          "4"
+        ]
+      ],
+      "upstream": [
+        [
+          "0",
+          "3"
+        ],
+        [
+          "1",
+          "5"
+        ],
+        [
+          "1",
+          "6"
+        ],
+        [
+          "2",
+          "7"
+        ],
+        [
+          "0",
+          "4"
+        ]
+      ]
+    },
+    "BFS": {
+      "agrees_on_fixture": true,
+      "ours": [
+        [
+          "1",
+          "5"
+        ],
+        [
+          "2",
+          "7"
+        ],
+        [
+          "0",
+          "3"
+        ],
+        [
+          "1",
+          "6"
+        ],
+        [
+          "0",
+          "4"
+        ]
+      ],
+      "upstream": [
+        [
+          "1",
+          "5"
+        ],
+        [
+          "2",
+          "7"
+        ],
+        [
+          "0",
+          "3"
+        ],
+        [
+          "1",
+          "6"
+        ],
+        [
+          "0",
+          "4"
+        ]
+      ]
+    },
+    "DFS": {
+      "agrees_on_fixture": true,
+      "ours": [
+        [
+          "1",
+          "5"
+        ],
+        [
+          "1",
+          "6"
+        ],
+        [
+          "2",
+          "7"
+        ],
+        [
+          "0",
+          "3"
+        ],
+        [
+          "0",
+          "4"
+        ]
+      ],
+      "upstream": [
+        [
+          "1",
+          "5"
+        ],
+        [
+          "1",
+          "6"
+        ],
+        [
+          "2",
+          "7"
+        ],
+        [
+          "0",
+          "3"
+        ],
+        [
+          "0",
+          "4"
+        ]
+      ]
+    },
+    "Hybrid": {
+      "agrees_on_fixture": false,
+      "ours": [
+        [
+          "0",
+          "3"
+        ],
+        [
+          "1",
+          "5"
+        ],
+        [
+          "2",
+          "7"
+        ],
+        [
+          "1",
+          "6"
+        ],
+        [
+          "0",
+          "4"
+        ]
+      ],
+      "upstream": [
+        [
+          "1",
+          "5"
+        ],
+        [
+          "2",
+          "7"
+        ],
+        [
+          "0",
+          "3"
+        ],
+        [
+          "1",
+          "6"
+        ],
+        [
+          "0",
+          "4"
+        ]
+      ]
+    }
+  },
+  "hybrid_difference": "Our implementation follows paper Section 6: globally sort first edges. Pinned DatasetScheduler HB emits first edges in node-mean order instead.",
+  "scope": "_generate_auc_data with batch_size=1, actual emissions, no early-stop mode; does not establish full workflow equivalence or identify the paper's original software commit"
+}

@@ -1,0 +1,165 @@
+{
+  "repository": "AI-team-UoA/pyJedAI",
+  "commit": "eb446095f921af3207bbefd570cc65e818194419",
+  "files": [
+    {
+      "path": "data/ccer/D1/rest1.csv",
+      "git_blob_sha": "ee7c78950a983848ccebd2646a9bdac92aa8fe4e",
+      "size_bytes": 8976,
+      "sha256": "d158d24dff9a2650e43e872cf5d3743f82e68fad15d0e06b8fcc21693ff94297"
+    },
+    {
+      "path": "data/ccer/D1/rest2.csv",
+      "git_blob_sha": "1a706fa6ba8a013f532878fa387960fa1e96eaab",
+      "size_bytes": 60830,
+      "sha256": "70c010756df7da7fc0b3729f16449d20ec4836a5312872a8c4dd5f459e383203"
+    },
+    {
+      "path": "data/ccer/D1/gt.csv",
+      "git_blob_sha": "9ecd1eb1a4f5611c5a6a1ce98e7105814b651f59",
+      "size_bytes": 816,
+      "sha256": "3c2338d6e2d94cf1fce20d060cce7fe8a699d6ee8fd0b1950740a9611fd4c880"
+    },
+    {
+      "path": "data/ccer/D2/abt.csv",
+      "git_blob_sha": "1689e90aa781e24ee641adbcc6f7ebc4e60def69",
+      "size_bytes": 335959,
+      "sha256": "8370815f2beaeee938459397ef2343d99abf0a40506351ad8db9a70247e64a37"
+    },
+    {
+      "path": "data/ccer/D2/buy.csv",
+      "git_blob_sha": "e293cdfbaea4813089f78db5bfa02a1322370949",
+      "size_bytes": 103580,
+      "sha256": "75ca7059f38587af57f1843cefcb9a8fe3ad14ae21855ab17593d03f0f02cd82"
+    },
+    {
+      "path": "data/ccer/D2/gt.csv",
+      "git_blob_sha": "5a81f49dbd916d7ac32a964a5431c378897598e2",
+      "size_bytes": 8545,
+      "sha256": "f78f39dc38609594fe9c8d0f7868a46e51c5684f0a1467b23f9c4a5af219ad7c"
+    },
+    {
+      "path": "data/der/coraLarge/cora.csv",
+      "git_blob_sha": "afb6a3cc365e90117ac6856242272f86c7b9f6f0",
+      "size_bytes": 302334,
+      "sha256": "fc5b298391c3e428cae5b0332feae5a16334e59a43b759029026bedf11b5769c"
+    },
+    {
+      "path": "data/der/coraLarge/gt.csv",
+      "git_blob_sha": "348b18c9664e692eb7a0277aacd460f6e5eb19a4",
+      "size_bytes": 749198,
+      "sha256": "8e778b80e7e9e940ed9a68774781d7e3011eb1b7d3f830141ff4e4c28f5d9492"
+    },
+    {
+      "path": "src/pyjedai/evaluation.py",
+      "git_blob_sha": "5a86891a3172979ab25f3b65cfd56271696ffaa8",
+      "size_bytes": 19285,
+      "sha256": "a2dae4f4916f46bc67417ddc611bc4f82beaba05e75a819bb679eee6315d659a"
+    },
+    {
+      "path": "src/pyjedai/utils.py",
+      "git_blob_sha": "92dab8040edbc2af519c6cf52c5b72c92e2b73cd",
+      "size_bytes": 54821,
+      "sha256": "cbe46ce9b5ac4a024c1b12c4fbc04c1194b2155a815977a6af9824031d49ae2e"
+    },
+    {
+      "path": "src/pyjedai/prioritization.py",
+      "git_blob_sha": "9d9422ad0dd0a0cd71c3030c07f575d9f1f46dcf",
+      "size_bytes": 68202,
+      "sha256": "a6bdc2c8051a519fc7969331c4083744d1ccbc02f8a819d13f1c7aded493575e"
+    },
+    {
+      "path": "LICENSE",
+      "git_blob_sha": "5a52027d8b1e7422a3b272031c1e56022c383555",
+      "size_bytes": 11392,
+      "sha256": "2a993a4954f77adc7774476031edbd4d43c5a6a98ba46ab05c3acc1a7eba9305"
+    },
+    {
+      "path": "README.md",
+      "git_blob_sha": "1c21b32cd71bc9c01b33b16fd7544814124bc19c",
+      "size_bytes": 9637,
+      "sha256": "af18678b63574dca587ceb57516ddd0d0d178b072bdb6c6c069a8edeca6c0afe"
+    }
+  ],
+  "dataset_terms": "Dataset-specific licenses have not been identified in this mirror. The repository software license is Apache-2.0; it is not assumed to license the benchmark data. Raw files remain local.",
+  "datasets": [
+    {
+      "key": "d1_restaurants",
+      "mode": "linkage",
+      "delimiter": "|",
+      "left": "data/ccer/D1/rest1.csv",
+      "right": "data/ccer/D1/rest2.csv",
+      "truth": "data/ccer/D1/gt.csv",
+      "id_column": "id",
+      "truth_columns": [
+        "D1",
+        "D2"
+      ],
+      "exclude_columns": [
+        "id"
+      ],
+      "expected_counts": [
+        339,
+        2256,
+        89
+      ],
+      "paper_counts": [
+        339,
+        2256,
+        89
+      ]
+    },
+    {
+      "key": "d2_abt_buy",
+      "mode": "linkage",
+      "delimiter": "|",
+      "left": "data/ccer/D2/abt.csv",
+      "right": "data/ccer/D2/buy.csv",
+      "truth": "data/ccer/D2/gt.csv",
+      "id_column": "id",
+      "truth_columns": [
+        "D1",
+        "D2"
+      ],
+      "exclude_columns": [
+        "id"
+      ],
+      "expected_counts": [
+        1076,
+        1076,
+        1076
+      ],
+      "paper_counts": [
+        1076,
+        1076,
+        1076
+      ]
+    },
+    {
+      "key": "cora_large_variant",
+      "mode": "deduplication",
+      "delimiter": ",",
+      "left": "data/der/coraLarge/cora.csv",
+      "truth": "data/der/coraLarge/gt.csv",
+      "id_column": "id",
+      "truth_columns": [
+        "id1",
+        "id2"
+      ],
+      "exclude_columns": [
+        "id",
+        "label"
+      ],
+      "expected_counts": [
+        1879,
+        null,
+        62891
+      ],
+      "paper_counts": [
+        1878,
+        null,
+        62892
+      ]
+    }
+  ]
+}

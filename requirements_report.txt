@@ -1,0 +1,3 @@
+# Python 3.12: report figures, PDF text checks, and layout inspection.
+-r requirements_plotting.txt
+pypdf==6.21.2

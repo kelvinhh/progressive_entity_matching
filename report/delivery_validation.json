@@ -1,0 +1,34 @@
+{
+  "checked_at_utc": "2026-11-22T11:22:36.610426+00:00",
+  "technical_checks_passed": true,
+  "pdf_pages": 15,
+  "pdf_text_and_table_cells_checked": 325,
+  "pdf_sha256": "323fd64585aba7427e6b5fda346c3c71d2cfab16b2d5a1fabb443e20316f5b35",
+  "report_json_sha256": "a7a195b59a7c71f8bcbd1764f7d06ba2996397e0016f430c8569f339a84a10b6",
+  "layout_overflow_warnings": [],
+  "evidence_hashes_match": true,
+  "full_grid_rows_reproduced": 1680,
+  "fresh_resource_jobs_completed": 75,
+  "core_tests_passed": 26,
+  "offline_plotting_installation_verified": true,
+  "cold_network_acquisition_verified": false,
+  "repository_url_checked_via_authenticated_api": true,
+  "latest_local_changes_uploaded": false,
+  "administrative_information_pending": [
+    "Group members' names and undergraduate majors",
+    "Actual individual contribution statement",
+    "Submission deadline and any later course instructions",
+    "Human review of scientific claims and authorship"
+  ],
+  "excluded_by_user": [
+    "Video production",
+    "Video link insertion",
+    "Submission"
+  ],
+  "submission_ready": false,
+  "limitations": [
+    "The execution host failed external DNS resolution; cold downloads and online dependency resolution are not claimed.",
+    "Dataset-specific terms and the exact original paper data/software revision remain documented research limitations.",
+    "Machine checks do not constitute human scientific review or final course submission approval."
+  ]
+}

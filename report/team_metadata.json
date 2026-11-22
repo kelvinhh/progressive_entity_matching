@@ -1,0 +1,13 @@
+{
+  "course": "DSC-5003",
+  "track": "Track 2: Research Paper Replication",
+  "project_code": null,
+  "members": [],
+  "contributions": [],
+  "submission_deadline": null,
+  "repository_url": "https://github.com/kelvinhh/progressive_entity_matching",
+  "video_url": null,
+  "submission_ready": false,
+  "human_review_complete": false,
+  "note": "Fill members with objects containing name and undergraduate_major; fill contributions with name and actual_contribution. No identities or roles have been inferred. Video production and submission are excluded from this task."
+}

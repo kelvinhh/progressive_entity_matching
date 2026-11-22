@@ -29,15 +29,25 @@ def write_csv(path, rows):
         writer.writerows(rows)
 
 
+def resolve_budgets(config: dict, truth_count: int) -> list[int]:
+    explicit = config.get("budgets")
+    multipliers = config.get("budget_multipliers")
+    if (explicit is None) == (multipliers is None):
+        raise ValueError("Set exactly one of budgets or budget_multipliers")
+    values = explicit if explicit is not None else multipliers
+    minimum = 0 if explicit is not None else 1
+    if not isinstance(values, list) or not values or any(type(b) is not int or b < minimum for b in values):
+        raise ValueError("budgets must be nonnegative integers; budget_multipliers must be positive integers")
+    return sorted(set(values if explicit is not None else [b * truth_count for b in values]))
+
+
 def run(config_path: Path, output: Path) -> list[dict]:
     config_path = config_path.resolve()
     config = json.loads(config_path.read_text(encoding="utf-8"))
     mode = config["mode"]
     if mode not in {"linkage", "deduplication"}:
         raise ValueError("mode must be linkage or deduplication")
-    budgets = config["budgets"]
-    if not budgets or any(type(b) is not int or b < 0 for b in budgets):
-        raise ValueError("budgets must be a nonempty list of nonnegative integers")
+    resolve_budgets(config, 1)  # Validate before doing expensive work.
     strategies = config.get("strategies", list(STRATEGIES))
     if not strategies or len(strategies) != len(set(strategies)) or any(s not in STRATEGIES for s in strategies):
         raise ValueError("Select distinct supported strategies")
@@ -52,7 +62,11 @@ def run(config_path: Path, output: Path) -> list[dict]:
         return read_records(resolve(spec["path"]), spec["id_column"], spec["text_columns"],
                             spec.get("delimiter", ","))
 
-    tracemalloc.start()
+    trace_memory = config.get("trace_memory", True)
+    if type(trace_memory) is not bool:
+        raise ValueError("trace_memory must be a boolean")
+    if trace_memory:
+        tracemalloc.start()
     try:
         start = time.perf_counter()
         left = records(config["left"])
@@ -65,6 +79,7 @@ def run(config_path: Path, output: Path) -> list[dict]:
         truth = read_truth(resolve(config["ground_truth"]), {r.id for r in left},
                            {r.id for r in (right if right is not None else left)}, mode,
                            config.get("ground_truth_delimiter", ","))
+        budgets = resolve_budgets(config, len(truth))
         candidate_recall = len({e.pair for e in candidates} & truth) / len(truth)
         rows, curves, orders = [], [], []
         for strategy in strategies:
@@ -83,9 +98,10 @@ def run(config_path: Path, output: Path) -> list[dict]:
             orders.extend({"strategy": strategy, "rank": i, "left_id": e.left,
                            "right_id": e.right, "score": e.score,
                            "is_match": int(e.pair in truth)} for i, e in enumerate(order, 1))
-        _, peak_bytes = tracemalloc.get_traced_memory()
+        peak_bytes = tracemalloc.get_traced_memory()[1] if trace_memory else None
     finally:
-        tracemalloc.stop()
+        if trace_memory:
+            tracemalloc.stop()
     output.mkdir(parents=True, exist_ok=True)
     write_csv(output / "metrics.csv", rows)
     write_csv(output / "curves.csv", curves)
@@ -104,11 +120,17 @@ def run(config_path: Path, output: Path) -> list[dict]:
         "runner_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "input_sha256": {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths},
         "load_seconds": load_seconds, "candidate_seconds": candidate_seconds,
+        "left_records": len(left), "right_records": len(right) if right is not None else None,
+        "ground_truth_pairs": len(truth), "resolved_budgets": budgets,
+        "candidate_count": len(candidates), "candidate_recall": candidate_recall,
+        "trace_memory": trace_memory,
         "traced_python_peak_bytes_entire_run": peak_bytes,
-        "measurement_notes": "Single run under tracemalloc. Peak includes inputs, evaluation and all output rows; "
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; "
                              "not per-strategy RSS. Scheduling measured once at maximum budget. "
                              "Verification time excluded. Synthetic fixtures are pipeline checks only.",
         "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419",
     }
     (output / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n")
     return rows

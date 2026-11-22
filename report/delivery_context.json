@@ -1,0 +1,20 @@
+{
+  "checked_on": "2026-11-22",
+  "repository_url": "https://github.com/kelvinhh/progressive_entity_matching",
+  "remote_main_sha": "0c8e3be67b440485269e92a664dac12dfb190f66",
+  "remote_checked_via": "GitHub branch API, authenticated read",
+  "remote_contains_latest_local_results": false,
+  "git_write_performed": false,
+  "submission_performed": false,
+  "video_created": false,
+  "cold_network_check": {
+    "execution_host": "blocked by DNS resolution failure",
+    "attempted_public_urls": ["https://raw.githubusercontent.com/AI-team-UoA/pyJedAI/eb446095f921af3207bbefd570cc65e818194419/data/ccer/D1/gt.csv", "https://pypi.org/simple/reportlab/"],
+    "result": "urllib.error.URLError: nodename nor servname provided, or not known",
+    "download_verified": false
+  },
+  "bibliography_check": {
+    "replicated_paper": "Metadata checked against the supplied paper's ACM Reference Format on PDF page 1; publisher and Crossref web access did not succeed in this environment.",
+    "scientific_agent_skills": "Title, five authors, year, and unversioned DOI checked at https://arxiv.org/abs/2609.00065 on 2026-11-22; a preprint, not cited as entity matching evidence."
+  }
+}

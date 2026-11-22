@@ -1,0 +1,14 @@
+{
+  "python": "3.12.16 (main, Nov 11 2026, 00:09:12) [Clang 23.1.3 ]",
+  "platform": "macOS-26.7.3-arm64-arm-64bit",
+  "matplotlib": "3.11.2",
+  "numpy": "2.5.5",
+  "source_sha256": "84d8c93d4fd9441226ca0fe5689e9e3eb2dff32fd134531dd6750a0a063aa0fe",
+  "input_sha256": {
+    "fixed_baseline_metrics.csv": "12ebadebfd4b56522d4307b2dbf788aa95bf54e9962ba2064d691045bccc32f5",
+    "sweep_metrics.csv": "d70f8c6304cb71e5043b8d88b13ad09903a14dc7c12cb735b720f5b491a117a9",
+    "resource_summary.csv": "fb99fa6334f7bc0984963d89ce5cb64a277d04aae6c4de52837129c5aa468ae4"
+  },
+  "resource_error_bars": "min/max across 5 fresh workers; marker is median, not a confidence interval",
+  "sensitivity_points": "All predeclared settings; repeated budgets/settings are not independent data replicates"
+}

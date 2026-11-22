@@ -129,6 +129,13 @@ class EvaluationTests(unittest.TestCase):
         self.assertEqual(result["progressive_recall"], .5)
         self.assertEqual(result["comparisons"], 1)
 
+    def test_upstream_auc_uses_emissions_plus_one_and_no_tail(self):
+        order = [E("a", "b", .8)]
+        result = evaluate(order, {("a", "b"), ("x", "y")}, 4)
+        self.assertEqual(result["pyjedai_auc"], .25)
+        self.assertEqual(result["progressive_recall"], .5)
+        self.assertEqual(evaluate([], {("a", "b")}, 0)["pyjedai_auc"], 0)
+
     def test_duplicate_orders_and_empty_truth_rejected(self):
         with self.assertRaises(ValueError):
             evaluate([E("a", "b", .8)] * 2, {("a", "b")}, 2)

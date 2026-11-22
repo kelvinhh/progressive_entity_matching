@@ -1,0 +1,59 @@
+{
+  "completed_at_utc": "2026-11-22T11:13:16.643042+00:00",
+  "runtime": {
+    "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+    "distributions": []
+  },
+  "tests_passed": 26,
+  "metric_rows_reproduced": 120,
+  "compared_fields": [
+    "comparisons",
+    "matches",
+    "recall",
+    "progressive_recall",
+    "pyjedai_auc",
+    "candidate_count",
+    "candidate_recall"
+  ],
+  "maximum_absolute_error": 0.0,
+  "tolerance": 1e-12,
+  "script_sha256": "ac972ba2e5c14e4b2e93a08e0adcc8e4f2c60bd193bb25a7cce992a25ec4c06a",
+  "source_sha256": {
+    "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+    "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+    "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+    "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+    "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062",
+    "scripts/benchmark_resources.py": "200e9368a8216f7faba2742da78dbaab9052c5cdf7969fe2704fc52313d4ba59",
+    "scripts/plot_results.py": "84d8c93d4fd9441226ca0fe5689e9e3eb2dff32fd134531dd6750a0a063aa0fe",
+    "scripts/prepare_benchmarks.py": "a5122080b1fa892e5db19926ac6ed7d0b793c8bb44de4b865b7cde5ec3a839ad",
+    "scripts/report_figures.py": "1f17ca04545932f99c210e03d9877623fea423396b08c1ab1963e4cf8e3e164a",
+    "scripts/run_experiment.py": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+    "scripts/run_sweep.py": "c94ea7a293d6c8e61f651798785277da29ac0b15971ddecf77d2f03397541592",
+    "scripts/summarize_benchmarks.py": "bdac41a68d5b896738d375d0f4464c1bc663273d922966d286eb80f28f9a90d4",
+    "scripts/summarize_stage2.py": "ec971387f24608d9bc22919c28241bf7826f61b5e1f39034f80e54fe9766f609",
+    "scripts/verify_reference.py": "edc838813944adf545bc36861b7a161b257376b1322229c4bfe61b4634ccca69",
+    "scripts/verify_reproduction.py": "ac972ba2e5c14e4b2e93a08e0adcc8e4f2c60bd193bb25a7cce992a25ec4c06a",
+    "configs/benchmark_sources.json": "94dda0bc4caf34127ceaa9da2d8148dd2d688c838d8c440cc46ee1f1660897fe",
+    "configs/benchmarks/cora_large_variant.json": "507fbe26caedcdbd710602d70dff164db60b935f4869969c251320d4adb62716",
+    "configs/benchmarks/d1_restaurants.json": "e6025061d60a08d0a68f7d23432cda6a454d9b4331dd4ab7c1edefe53f83f1b8",
+    "configs/benchmarks/d2_abt_buy.json": "a82c63f96bb681cd88fff62f616f1079f82dc153978362cbc11c22f1612c9ed9",
+    "configs/demo_deduplication.json": "6f7c349a0498b9a5f2a63ecf0571958cb3235c845a5839f2462b69281f99ae43",
+    "configs/demo_linkage.json": "171313ca21ecd751d981b5256b574ad303d03cad83aff66a95651bf84b3cbfad",
+    "configs/experiment_protocol.json": "cc06fdc25e02e6bcbb5e08a47264629ff077edb788e3e77b207cb0f528ec4471",
+    "tests/test_benchmarks.py": "c2b9b648cea66fc63b9dc151636f806dea0265afcb4e36ea37f8e699140f20b8",
+    "tests/test_core.py": "a19ce446c40fb62f74a7915eabb5c351b57bc1227d6cd9a192c65e58c9e4ac52",
+    "tests/test_preparation.py": "5ba25855ee21f696f18b552143bea5b719d52cc36229a74350f2babca56aae5b",
+    "tests/test_runner.py": "06b5203d9bf64479a7f42e294027759cff6fc58d69e61292407dbea2d63a62aa"
+  },
+  "reference_commit": "eb446095f921af3207bbefd570cc65e818194419",
+  "full_run": {
+    "grid_rows_reproduced": 1680,
+    "grid_maximum_absolute_error": 0.0,
+    "resource_measured_jobs_completed": 75,
+    "resource_output_signatures_match": true,
+    "timing_values_compared": false,
+    "rss_values_compared": false
+  },
+  "scope": "Fresh copied source tree and venv with no installed distributions or pip; pinned cached source files are verified and normalized from scratch; all 120 fixed-baseline quality rows reproduced. Timing values are not compared. Cold network downloads and plotting-package installation are not covered. The optional full_run field records whether the entire grid and resource jobs were also repeated; timing/RSS values are never expected to match exactly."
+}

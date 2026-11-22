@@ -1,0 +1,4091 @@
+{
+  "protocol": {
+    "name": "replication_stage_2",
+    "datasets": [
+      "d1_restaurants",
+      "d2_abt_buy",
+      "cora_large_variant"
+    ],
+    "grid": {
+      "ngram": [
+        3,
+        5
+      ],
+      "top_k": [
+        1,
+        5,
+        10
+      ],
+      "linkage_indexing": [
+        "left",
+        "right",
+        "both"
+      ],
+      "deduplication_indexing": [
+        "right"
+      ]
+    },
+    "strategies": [
+      "EC",
+      "BFS",
+      "DFS",
+      "Hybrid"
+    ],
+    "budget_multipliers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "selection_policy": "Descriptive sensitivity analysis of every declared setting. No parameter is selected using these labels for an independent validation claim. Resource measurements use the previously fixed ngram=3, top_k=10, indexing=right baseline.",
+    "resources": {
+      "warmup_blocks": 1,
+      "measured_blocks": 5,
+      "seed": 5003,
+      "hash_seed": "0",
+      "worker_timeout_seconds": 300,
+      "order": "Each block shuffles dataset-stage jobs, executes them sequentially, and uses a fresh process per job.",
+      "memory": "Peak process RSS from resource.getrusage, including interpreter, imports and input loading. Scheduling workers load a common candidate snapshot; candidate workers load source CSVs. No claim of incremental algorithm-only memory."
+    }
+  },
+  "protocol_sha256": "cc06fdc25e02e6bcbb5e08a47264629ff077edb788e3e77b207cb0f528ec4471",
+  "runner_sha256": "c94ea7a293d6c8e61f651798785277da29ac0b15971ddecf77d2f03397541592",
+  "completed_at_utc": "2026-11-22T10:49:46.979477+00:00",
+  "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "macOS-26.7.3-arm64-arm-64bit",
+  "settings": [
+    {
+      "setting": "d1_restaurants_g3_k1_left",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g3_k1_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.004378541,
+        "candidate_seconds": 0.053110000000000004,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 2238,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g3_k1_right",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g3_k1_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0034329999999999916,
+        "candidate_seconds": 0.051765083,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 339,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g3_k1_both",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g3_k1_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.003318125000000005,
+        "candidate_seconds": 0.09135279200000002,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 2351,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g3_k5_left",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g3_k5_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.003354541000000044,
+        "candidate_seconds": 0.065726917,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 10647,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g3_k5_right",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g3_k5_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.003331709000000016,
+        "candidate_seconds": 0.055507417,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 1695,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g3_k5_both",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g3_k5_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0033234580000000014,
+        "candidate_seconds": 0.11012545800000001,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 11117,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g3_k10_left",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g3_k10_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0035663750000000105,
+        "candidate_seconds": 0.08147433299999995,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 20388,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g3_k10_right",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g3_k10_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0034451659999999995,
+        "candidate_seconds": 0.05985999999999991,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 3390,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g3_k10_both",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g3_k10_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0034290829999999994,
+        "candidate_seconds": 0.125313208,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 21095,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g5_k1_left",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g5_k1_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0035114579999999673,
+        "candidate_seconds": 0.029363666000000066,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 1594,
+        "candidate_recall": 0.9887640449438202,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g5_k1_right",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g5_k1_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0034928330000001395,
+        "candidate_seconds": 0.027229332999999967,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 338,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g5_k1_both",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g5_k1_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0034585839999998758,
+        "candidate_seconds": 0.042873124999999845,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 1711,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g5_k5_left",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g5_k5_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.003463333000000013,
+        "candidate_seconds": 0.034598499999999976,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 6761,
+        "candidate_recall": 0.9887640449438202,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g5_k5_right",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g5_k5_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0034212919999998537,
+        "candidate_seconds": 0.029977124999999827,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 1665,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g5_k5_both",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g5_k5_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0033719999999999306,
+        "candidate_seconds": 0.04988770900000006,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 7234,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g5_k10_left",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g5_k10_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0034948749999998974,
+        "candidate_seconds": 0.041012792000000076,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 12029,
+        "candidate_recall": 0.9887640449438202,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g5_k10_right",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g5_k10_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0033898329999999532,
+        "candidate_seconds": 0.029564334000000025,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 2940,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d1_restaurants_g5_k10_both",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d1_restaurants_g5_k10_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+        },
+        "load_seconds": 0.0033748749999999994,
+        "candidate_seconds": 0.05707012499999986,
+        "left_records": 339,
+        "right_records": 2256,
+        "ground_truth_pairs": 89,
+        "resolved_budgets": [
+          89,
+          178,
+          267,
+          356,
+          445,
+          534,
+          623,
+          712,
+          801,
+          890
+        ],
+        "candidate_count": 12474,
+        "candidate_recall": 1.0,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g3_k1_left",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g3_k1_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006504665999999881,
+        "candidate_seconds": 0.9521630839999999,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 1076,
+        "candidate_recall": 0.8782527881040892,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g3_k1_right",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g3_k1_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006491416999999888,
+        "candidate_seconds": 0.8764761250000004,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 1076,
+        "candidate_recall": 0.8475836431226765,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g3_k1_both",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g3_k1_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006477166999999895,
+        "candidate_seconds": 1.7492778749999998,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 1284,
+        "candidate_recall": 0.9302973977695167,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g3_k5_left",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g3_k5_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006519041999999864,
+        "candidate_seconds": 1.11165775,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 5380,
+        "candidate_recall": 0.966542750929368,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g3_k5_right",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g3_k5_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006471832999999982,
+        "candidate_seconds": 0.902890792,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 5380,
+        "candidate_recall": 0.9730483271375465,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g3_k5_both",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g3_k5_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.0063745840000004605,
+        "candidate_seconds": 1.7934962499999996,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 7334,
+        "candidate_recall": 0.9888475836431226,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g3_k10_left",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g3_k10_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.0064094580000002566,
+        "candidate_seconds": 0.970299292,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 10760,
+        "candidate_recall": 0.991635687732342,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g3_k10_right",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g3_k10_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006428417000000408,
+        "candidate_seconds": 0.9224774580000012,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 10760,
+        "candidate_recall": 0.9869888475836431,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g3_k10_both",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g3_k10_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006277292000000045,
+        "candidate_seconds": 1.816029834,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 14808,
+        "candidate_recall": 0.9953531598513011,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g5_k1_left",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g5_k1_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006390292000000741,
+        "candidate_seconds": 0.3984285000000014,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 1076,
+        "candidate_recall": 0.8169144981412639,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g5_k1_right",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g5_k1_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006276040999999566,
+        "candidate_seconds": 0.3817307499999991,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 1076,
+        "candidate_recall": 0.7611524163568774,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g5_k1_both",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g5_k1_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006313000000000457,
+        "candidate_seconds": 0.6834421250000009,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 1379,
+        "candidate_recall": 0.8856877323420075,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g5_k5_left",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g5_k5_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006335709000000023,
+        "candidate_seconds": 0.4425595419999997,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 5372,
+        "candidate_recall": 0.949814126394052,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g5_k5_right",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g5_k5_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006726625000000652,
+        "candidate_seconds": 0.41535258300000066,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 5380,
+        "candidate_recall": 0.9460966542750929,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g5_k5_both",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g5_k5_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.0064431670000004715,
+        "candidate_seconds": 0.7911340419999995,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 7386,
+        "candidate_recall": 0.9804832713754646,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g5_k10_left",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "left"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g5_k10_left/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.007153917000000121,
+        "candidate_seconds": 0.46509045800000237,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 10738,
+        "candidate_recall": 0.9776951672862454,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g5_k10_right",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g5_k10_right/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.007063957999999815,
+        "candidate_seconds": 0.42283883399999667,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 10760,
+        "candidate_recall": 0.9767657992565055,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "d2_abt_buy_g5_k10_both",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "both"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/d2_abt_buy_g5_k10_both/input_config.json",
+        "mode": "linkage",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+        },
+        "load_seconds": 0.006754790999998761,
+        "candidate_seconds": 0.7693524580000002,
+        "left_records": 1076,
+        "right_records": 1076,
+        "ground_truth_pairs": 1076,
+        "resolved_budgets": [
+          1076,
+          2152,
+          3228,
+          4304,
+          5380,
+          6456,
+          7532,
+          8608,
+          9684,
+          10760
+        ],
+        "candidate_count": 14733,
+        "candidate_recall": 0.9934944237918215,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "cora_large_variant_g3_k1_right",
+      "config": {
+        "name": "cora_large_variant",
+        "mode": "deduplication",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": false
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/cora_large_variant_g3_k1_right/input_config.json",
+        "mode": "deduplication",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv": "84546236973f2a7e3156d8abcef0927b803741da0d5d2b7a89c5aa74e1b0c03e",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv": "ef03a6e8b26e5a60a187bd9ee4e9694489fd1afd37eaf3f6120f993154827c45"
+        },
+        "load_seconds": 0.004456083000000888,
+        "candidate_seconds": 6.739859374999998,
+        "left_records": 1879,
+        "right_records": null,
+        "ground_truth_pairs": 62891,
+        "resolved_budgets": [
+          62891,
+          125782,
+          188673,
+          251564,
+          314455,
+          377346,
+          440237,
+          503128,
+          566019,
+          628910
+        ],
+        "candidate_count": 1402,
+        "candidate_recall": 0.020766087357491532,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "cora_large_variant_g3_k5_right",
+      "config": {
+        "name": "cora_large_variant",
+        "mode": "deduplication",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": false
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/cora_large_variant_g3_k5_right/input_config.json",
+        "mode": "deduplication",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv": "84546236973f2a7e3156d8abcef0927b803741da0d5d2b7a89c5aa74e1b0c03e",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv": "ef03a6e8b26e5a60a187bd9ee4e9694489fd1afd37eaf3f6120f993154827c45"
+        },
+        "load_seconds": 0.00404458299999888,
+        "candidate_seconds": 6.806371374999998,
+        "left_records": 1879,
+        "right_records": null,
+        "ground_truth_pairs": 62891,
+        "resolved_budgets": [
+          62891,
+          125782,
+          188673,
+          251564,
+          314455,
+          377346,
+          440237,
+          503128,
+          566019,
+          628910
+        ],
+        "candidate_count": 6652,
+        "candidate_recall": 0.0893927589003196,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "cora_large_variant_g3_k10_right",
+      "config": {
+        "name": "cora_large_variant",
+        "mode": "deduplication",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": false
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/cora_large_variant_g3_k10_right/input_config.json",
+        "mode": "deduplication",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv": "84546236973f2a7e3156d8abcef0927b803741da0d5d2b7a89c5aa74e1b0c03e",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv": "ef03a6e8b26e5a60a187bd9ee4e9694489fd1afd37eaf3f6120f993154827c45"
+        },
+        "load_seconds": 0.004251291000002766,
+        "candidate_seconds": 6.857038291000002,
+        "left_records": 1879,
+        "right_records": null,
+        "ground_truth_pairs": 62891,
+        "resolved_budgets": [
+          62891,
+          125782,
+          188673,
+          251564,
+          314455,
+          377346,
+          440237,
+          503128,
+          566019,
+          628910
+        ],
+        "candidate_count": 13079,
+        "candidate_recall": 0.1609451272837131,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "cora_large_variant_g5_k1_right",
+      "config": {
+        "name": "cora_large_variant",
+        "mode": "deduplication",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 1,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": false
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/cora_large_variant_g5_k1_right/input_config.json",
+        "mode": "deduplication",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv": "84546236973f2a7e3156d8abcef0927b803741da0d5d2b7a89c5aa74e1b0c03e",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv": "ef03a6e8b26e5a60a187bd9ee4e9694489fd1afd37eaf3f6120f993154827c45"
+        },
+        "load_seconds": 0.004574875000002976,
+        "candidate_seconds": 3.789771041999998,
+        "left_records": 1879,
+        "right_records": null,
+        "ground_truth_pairs": 62891,
+        "resolved_budgets": [
+          62891,
+          125782,
+          188673,
+          251564,
+          314455,
+          377346,
+          440237,
+          503128,
+          566019,
+          628910
+        ],
+        "candidate_count": 1401,
+        "candidate_recall": 0.02068658472595443,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "cora_large_variant_g5_k5_right",
+      "config": {
+        "name": "cora_large_variant",
+        "mode": "deduplication",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 5,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": false
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/cora_large_variant_g5_k5_right/input_config.json",
+        "mode": "deduplication",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv": "84546236973f2a7e3156d8abcef0927b803741da0d5d2b7a89c5aa74e1b0c03e",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv": "ef03a6e8b26e5a60a187bd9ee4e9694489fd1afd37eaf3f6120f993154827c45"
+        },
+        "load_seconds": 0.004214790999995444,
+        "candidate_seconds": 3.8337725419999984,
+        "left_records": 1879,
+        "right_records": null,
+        "ground_truth_pairs": 62891,
+        "resolved_budgets": [
+          62891,
+          125782,
+          188673,
+          251564,
+          314455,
+          377346,
+          440237,
+          503128,
+          566019,
+          628910
+        ],
+        "candidate_count": 6649,
+        "candidate_recall": 0.08820021942726304,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    },
+    {
+      "setting": "cora_large_variant_g5_k10_right",
+      "config": {
+        "name": "cora_large_variant",
+        "mode": "deduplication",
+        "left": {
+          "path": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv",
+        "candidates": {
+          "ngram": 5,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": false
+        },
+        "strategies": [
+          "EC",
+          "BFS",
+          "DFS",
+          "Hybrid"
+        ]
+      },
+      "metadata": {
+        "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+        "platform": "macOS-26.7.3-arm64-arm-64bit",
+        "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/outputs/sweep/cora_large_variant_g5_k10_right/input_config.json",
+        "mode": "deduplication",
+        "source_sha256": {
+          "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+          "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+          "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+          "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+          "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+        },
+        "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "input_sha256": {
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/left.csv": "84546236973f2a7e3156d8abcef0927b803741da0d5d2b7a89c5aa74e1b0c03e",
+          "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/cora_large_variant/truth.csv": "ef03a6e8b26e5a60a187bd9ee4e9694489fd1afd37eaf3f6120f993154827c45"
+        },
+        "load_seconds": 0.004256041999994409,
+        "candidate_seconds": 3.8855618750000005,
+        "left_records": 1879,
+        "right_records": null,
+        "ground_truth_pairs": 62891,
+        "resolved_budgets": [
+          62891,
+          125782,
+          188673,
+          251564,
+          314455,
+          377346,
+          440237,
+          503128,
+          566019,
+          628910
+        ],
+        "candidate_count": 13115,
+        "candidate_recall": 0.15900526307420776,
+        "trace_memory": false,
+        "traced_python_peak_bytes_entire_run": null,
+        "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+        "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+        "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+        "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+      }
+    }
+  ],
+  "selection": "None; all predeclared settings are reported."
+}

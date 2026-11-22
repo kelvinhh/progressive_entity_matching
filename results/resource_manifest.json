@@ -1,0 +1,883 @@
+{
+  "protocol": {
+    "name": "replication_stage_2",
+    "datasets": [
+      "d1_restaurants",
+      "d2_abt_buy",
+      "cora_large_variant"
+    ],
+    "grid": {
+      "ngram": [
+        3,
+        5
+      ],
+      "top_k": [
+        1,
+        5,
+        10
+      ],
+      "linkage_indexing": [
+        "left",
+        "right",
+        "both"
+      ],
+      "deduplication_indexing": [
+        "right"
+      ]
+    },
+    "strategies": [
+      "EC",
+      "BFS",
+      "DFS",
+      "Hybrid"
+    ],
+    "budget_multipliers": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "selection_policy": "Descriptive sensitivity analysis of every declared setting. No parameter is selected using these labels for an independent validation claim. Resource measurements use the previously fixed ngram=3, top_k=10, indexing=right baseline.",
+    "resources": {
+      "warmup_blocks": 1,
+      "measured_blocks": 5,
+      "seed": 5003,
+      "hash_seed": "0",
+      "worker_timeout_seconds": 300,
+      "order": "Each block shuffles dataset-stage jobs, executes them sequentially, and uses a fresh process per job.",
+      "memory": "Peak process RSS from resource.getrusage, including interpreter, imports and input loading. Scheduling workers load a common candidate snapshot; candidate workers load source CSVs. No claim of incremental algorithm-only memory."
+    }
+  },
+  "protocol_sha256": "cc06fdc25e02e6bcbb5e08a47264629ff077edb788e3e77b207cb0f528ec4471",
+  "runner_sha256": "200e9368a8216f7faba2742da78dbaab9052c5cdf7969fe2704fc52313d4ba59",
+  "source_sha256": {
+    "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+    "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+    "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+    "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+    "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+  },
+  "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "executable": "/Library/Developer/CommandLineTools/usr/bin/python3",
+  "platform": "macOS-26.7.3-arm64-arm-64bit",
+  "machine": "arm64",
+  "cpu": "arm",
+  "completed_at_utc": "2026-11-22T10:53:14.561258+00:00",
+  "rss_units": "bytes after platform conversion",
+  "datasets": [
+    {
+      "dataset": "d1_restaurants",
+      "config": {
+        "name": "d1_restaurants",
+        "mode": "linkage",
+        "left": {
+          "path": "../../data/processed/d1_restaurants/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "../../data/processed/d1_restaurants/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "../../data/processed/d1_restaurants/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        }
+      },
+      "config_sha256": "e6025061d60a08d0a68f7d23432cda6a454d9b4331dd4ab7c1edefe53f83f1b8",
+      "snapshot_sha256": "8d02b6f37c872996fc9ab2af7230d0175ab7e51e6813501d652a8ae5263cb6f1",
+      "output_signatures": {
+        "candidates": "d5f5bff4ba5a8c93d2e9876b89030088a84de93eba1e380b989450f31e4ad50c",
+        "EC": "58a4dd2813068fc89b690ae37b5c28e072b9ef8a00babb1c7da9871cdfb83228",
+        "BFS": "649faac670636ac8f1beaca7af4ea86f0b1e082984048b7cbb3fb3a3cd6e3561",
+        "DFS": "e3c1b18c36be753d427bd2c6e772cdc625dbd70ccbb6f29c7a87061ed560d1a5",
+        "Hybrid": "53df4194544bad1b92db73c6effbb42bfb8bc6704588c866f2fa18b46a2e3fd9"
+      },
+      "input_sha256": {
+        "left": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+        "right": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6"
+      },
+      "ground_truth_sha256": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+    },
+    {
+      "dataset": "d2_abt_buy",
+      "config": {
+        "name": "d2_abt_buy",
+        "mode": "linkage",
+        "left": {
+          "path": "../../data/processed/d2_abt_buy/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "../../data/processed/d2_abt_buy/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": true
+        },
+        "right": {
+          "path": "../../data/processed/d2_abt_buy/right.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        }
+      },
+      "config_sha256": "a82c63f96bb681cd88fff62f616f1079f82dc153978362cbc11c22f1612c9ed9",
+      "snapshot_sha256": "ebeda506bc7ee7c003131fc7b1cf48f7867828f8361b39994cbefc33cb2945a1",
+      "output_signatures": {
+        "candidates": "a1c2fb8d21566a4b5927cc8bdabada30151c50e87311c0f863500c53c7cd6c4e",
+        "EC": "4b17dc97d5f6e4938971527ecacda5078e01d3c934bfbf5c171f752c4b828435",
+        "BFS": "0be8ec72874c5f5bbb0be1485e64ca0570fe628b4d6fdddfd4b5155f410ba9cd",
+        "DFS": "467dbc890bc75f08528b3b50234f632355800a0c28b99407afa4ec75bccbf91a",
+        "Hybrid": "f50a4de1330a55223d7c637c90ef294db98958002f16ee58a43db0e84fb51105"
+      },
+      "input_sha256": {
+        "left": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+        "right": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5"
+      },
+      "ground_truth_sha256": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+    },
+    {
+      "dataset": "cora_large_variant",
+      "config": {
+        "name": "cora_large_variant",
+        "mode": "deduplication",
+        "left": {
+          "path": "../../data/processed/cora_large_variant/left.csv",
+          "id_column": "id",
+          "text_columns": [
+            "text"
+          ]
+        },
+        "ground_truth": "../../data/processed/cora_large_variant/truth.csv",
+        "candidates": {
+          "ngram": 3,
+          "top_k": 10,
+          "min_score": 0.0,
+          "indexing": "right"
+        },
+        "partition": "left",
+        "budget_multipliers": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "trace_memory": false,
+        "data_provenance": {
+          "repository": "AI-team-UoA/pyJedAI",
+          "commit": "eb446095f921af3207bbefd570cc65e818194419",
+          "paper_counts_match": false
+        }
+      },
+      "config_sha256": "507fbe26caedcdbd710602d70dff164db60b935f4869969c251320d4adb62716",
+      "snapshot_sha256": "fe354d5b3cce4cc05dd8668f5c017fce5fa517d38d7374726a9c45e1dad4fb85",
+      "output_signatures": {
+        "candidates": "081ea67fc75cf3931fe1fea8b4af97fe0d829121c23ffcf4a64ef6c3628b96ad",
+        "EC": "ff427c01031f4b4b92415352ab8f54f308bdffb3aa7755f5e52d191140f6bef1",
+        "BFS": "ecb954378c75449389b0f803b509fa841caa46ec48f094872832a80b231cbb64",
+        "DFS": "83dc490a091742cf62476ad63492b324ce551f8f77bad8174375720ef6943138",
+        "Hybrid": "0ec7f23bb40936be2304b80d8428aa8f182ca74de8b04b5718dd0bca2c9f5628"
+      },
+      "input_sha256": {
+        "left": "84546236973f2a7e3156d8abcef0927b803741da0d5d2b7a89c5aa74e1b0c03e"
+      },
+      "ground_truth_sha256": "ef03a6e8b26e5a60a187bd9ee4e9694489fd1afd37eaf3f6120f993154827c45"
+    }
+  ],
+  "execution_order": [
+    {
+      "block": 0,
+      "position": 0,
+      "warmup": true,
+      "dataset": "d1_restaurants",
+      "stage": "EC"
+    },
+    {
+      "block": 0,
+      "position": 1,
+      "warmup": true,
+      "dataset": "cora_large_variant",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 0,
+      "position": 2,
+      "warmup": true,
+      "dataset": "d1_restaurants",
+      "stage": "candidates"
+    },
+    {
+      "block": 0,
+      "position": 3,
+      "warmup": true,
+      "dataset": "d2_abt_buy",
+      "stage": "candidates"
+    },
+    {
+      "block": 0,
+      "position": 4,
+      "warmup": true,
+      "dataset": "d2_abt_buy",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 0,
+      "position": 5,
+      "warmup": true,
+      "dataset": "d1_restaurants",
+      "stage": "DFS"
+    },
+    {
+      "block": 0,
+      "position": 6,
+      "warmup": true,
+      "dataset": "cora_large_variant",
+      "stage": "candidates"
+    },
+    {
+      "block": 0,
+      "position": 7,
+      "warmup": true,
+      "dataset": "d2_abt_buy",
+      "stage": "BFS"
+    },
+    {
+      "block": 0,
+      "position": 8,
+      "warmup": true,
+      "dataset": "cora_large_variant",
+      "stage": "DFS"
+    },
+    {
+      "block": 0,
+      "position": 9,
+      "warmup": true,
+      "dataset": "d2_abt_buy",
+      "stage": "DFS"
+    },
+    {
+      "block": 0,
+      "position": 10,
+      "warmup": true,
+      "dataset": "d1_restaurants",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 0,
+      "position": 11,
+      "warmup": true,
+      "dataset": "d2_abt_buy",
+      "stage": "EC"
+    },
+    {
+      "block": 0,
+      "position": 12,
+      "warmup": true,
+      "dataset": "cora_large_variant",
+      "stage": "EC"
+    },
+    {
+      "block": 0,
+      "position": 13,
+      "warmup": true,
+      "dataset": "cora_large_variant",
+      "stage": "BFS"
+    },
+    {
+      "block": 0,
+      "position": 14,
+      "warmup": true,
+      "dataset": "d1_restaurants",
+      "stage": "BFS"
+    },
+    {
+      "block": 1,
+      "position": 0,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "candidates"
+    },
+    {
+      "block": 1,
+      "position": 1,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "candidates"
+    },
+    {
+      "block": 1,
+      "position": 2,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 1,
+      "position": 3,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "BFS"
+    },
+    {
+      "block": 1,
+      "position": 4,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "EC"
+    },
+    {
+      "block": 1,
+      "position": 5,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "candidates"
+    },
+    {
+      "block": 1,
+      "position": 6,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 1,
+      "position": 7,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "DFS"
+    },
+    {
+      "block": 1,
+      "position": 8,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "EC"
+    },
+    {
+      "block": 1,
+      "position": 9,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "DFS"
+    },
+    {
+      "block": 1,
+      "position": 10,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "DFS"
+    },
+    {
+      "block": 1,
+      "position": 11,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "BFS"
+    },
+    {
+      "block": 1,
+      "position": 12,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "BFS"
+    },
+    {
+      "block": 1,
+      "position": 13,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 1,
+      "position": 14,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "EC"
+    },
+    {
+      "block": 2,
+      "position": 0,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "EC"
+    },
+    {
+      "block": 2,
+      "position": 1,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 2,
+      "position": 2,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 2,
+      "position": 3,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "candidates"
+    },
+    {
+      "block": 2,
+      "position": 4,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "candidates"
+    },
+    {
+      "block": 2,
+      "position": 5,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "BFS"
+    },
+    {
+      "block": 2,
+      "position": 6,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "EC"
+    },
+    {
+      "block": 2,
+      "position": 7,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "candidates"
+    },
+    {
+      "block": 2,
+      "position": 8,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "EC"
+    },
+    {
+      "block": 2,
+      "position": 9,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "BFS"
+    },
+    {
+      "block": 2,
+      "position": 10,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "DFS"
+    },
+    {
+      "block": 2,
+      "position": 11,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "DFS"
+    },
+    {
+      "block": 2,
+      "position": 12,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 2,
+      "position": 13,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "DFS"
+    },
+    {
+      "block": 2,
+      "position": 14,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "BFS"
+    },
+    {
+      "block": 3,
+      "position": 0,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "candidates"
+    },
+    {
+      "block": 3,
+      "position": 1,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "EC"
+    },
+    {
+      "block": 3,
+      "position": 2,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "DFS"
+    },
+    {
+      "block": 3,
+      "position": 3,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "BFS"
+    },
+    {
+      "block": 3,
+      "position": 4,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "DFS"
+    },
+    {
+      "block": 3,
+      "position": 5,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "EC"
+    },
+    {
+      "block": 3,
+      "position": 6,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 3,
+      "position": 7,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "candidates"
+    },
+    {
+      "block": 3,
+      "position": 8,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "BFS"
+    },
+    {
+      "block": 3,
+      "position": 9,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "EC"
+    },
+    {
+      "block": 3,
+      "position": 10,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 3,
+      "position": 11,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "candidates"
+    },
+    {
+      "block": 3,
+      "position": 12,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "DFS"
+    },
+    {
+      "block": 3,
+      "position": 13,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "BFS"
+    },
+    {
+      "block": 3,
+      "position": 14,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 4,
+      "position": 0,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "DFS"
+    },
+    {
+      "block": 4,
+      "position": 1,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 4,
+      "position": 2,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "DFS"
+    },
+    {
+      "block": 4,
+      "position": 3,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "DFS"
+    },
+    {
+      "block": 4,
+      "position": 4,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 4,
+      "position": 5,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 4,
+      "position": 6,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "EC"
+    },
+    {
+      "block": 4,
+      "position": 7,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "BFS"
+    },
+    {
+      "block": 4,
+      "position": 8,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "candidates"
+    },
+    {
+      "block": 4,
+      "position": 9,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "EC"
+    },
+    {
+      "block": 4,
+      "position": 10,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "candidates"
+    },
+    {
+      "block": 4,
+      "position": 11,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "candidates"
+    },
+    {
+      "block": 4,
+      "position": 12,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "BFS"
+    },
+    {
+      "block": 4,
+      "position": 13,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "BFS"
+    },
+    {
+      "block": 4,
+      "position": 14,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "EC"
+    },
+    {
+      "block": 5,
+      "position": 0,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 5,
+      "position": 1,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 5,
+      "position": 2,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "EC"
+    },
+    {
+      "block": 5,
+      "position": 3,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "candidates"
+    },
+    {
+      "block": 5,
+      "position": 4,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "BFS"
+    },
+    {
+      "block": 5,
+      "position": 5,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "candidates"
+    },
+    {
+      "block": 5,
+      "position": 6,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "BFS"
+    },
+    {
+      "block": 5,
+      "position": 7,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "DFS"
+    },
+    {
+      "block": 5,
+      "position": 8,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "DFS"
+    },
+    {
+      "block": 5,
+      "position": 9,
+      "warmup": false,
+      "dataset": "d2_abt_buy",
+      "stage": "EC"
+    },
+    {
+      "block": 5,
+      "position": 10,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "candidates"
+    },
+    {
+      "block": 5,
+      "position": 11,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "BFS"
+    },
+    {
+      "block": 5,
+      "position": 12,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "DFS"
+    },
+    {
+      "block": 5,
+      "position": 13,
+      "warmup": false,
+      "dataset": "d1_restaurants",
+      "stage": "Hybrid"
+    },
+    {
+      "block": 5,
+      "position": 14,
+      "warmup": false,
+      "dataset": "cora_large_variant",
+      "stage": "EC"
+    }
+  ],
+  "measurement_boundary": "Fresh worker per trial. Stage timer excludes input loading, hashing, result serialization and process startup. RSS is the full worker lifetime peak through the stage, including imports and input loading. Candidate and scheduler memory have different input baselines; no subtraction or algorithm-only memory claim."
+}

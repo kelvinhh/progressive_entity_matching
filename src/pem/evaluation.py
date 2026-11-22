@@ -9,7 +9,9 @@ def evaluate(order: list[Candidate], truth: set[tuple[str, str]], budget: int) -
 
     If candidates run out before B, recall stays constant through the remaining
     budget. B=0 returns zero. This discrete integration convention is explicit;
-    bit-for-bit agreement with the authors' AUC utility is not claimed.
+    Also reports pyjedai_auc, compatible with _generate_auc_data in the pinned
+    pyJedAI snapshot for batch_size=1 and emit_all_tps_stop=False: sum of recall
+    over actual emissions divided by (emissions + 1). It has no constant tail.
     """
     if type(budget) is not int or budget < 0:
         raise ValueError("budget must be a nonnegative integer")
@@ -25,10 +27,12 @@ def evaluate(order: list[Candidate], truth: set[tuple[str, str]], budget: int) -
         seen.add(edge.pair)
         hits += edge.pair in truth
         area += hits
+    pyjedai_auc = area / ((len(prefix) + 1) * len(truth))
     area += (budget - len(prefix)) * hits
     return {"budget": budget, "comparisons": len(prefix), "matches": hits,
             "recall": hits / len(truth),
-            "progressive_recall": area / (budget * len(truth)) if budget else 0.0}
+            "progressive_recall": area / (budget * len(truth)) if budget else 0.0,
+            "pyjedai_auc": pyjedai_auc}
 
 
 def recall_curve(order: list[Candidate], truth: set[tuple[str, str]]) -> list[dict]:

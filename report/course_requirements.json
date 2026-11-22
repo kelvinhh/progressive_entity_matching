@@ -1,0 +1,13 @@
+{
+  "source": "DSC5003_1introduction&ER.pdf",
+  "library_file_id": "libfile_1958f13d4a2081919a19339a35b7c36b",
+  "pages": [5, 6, 7, 8, 9],
+  "read_on": "2026-11-22",
+  "track": "Track 2: Research Paper Replication",
+  "team_size": "4–8 students",
+  "report_filename_pattern": "XXXX-report.pdf",
+  "report_sections": ["Group names and undergraduate majors", "Actual contribution statement", "Paper title, authors, venue, and selection motivation", "Technical approach, implementation strategy, and deviations", "Core algorithms, data structures, and correctness validation", "Experimental setup, datasets, metrics, results, and comparison where applicable", "Challenges and lessons learned", "References", "Repository and video links"],
+  "deadline": null,
+  "source_is_tentative": true,
+  "scope_note": "These are the supplied introduction slides, including a Group Project (Tentative) heading. No later instructor update or submission deadline has been supplied. Video and submission are excluded by the current user request."
+}

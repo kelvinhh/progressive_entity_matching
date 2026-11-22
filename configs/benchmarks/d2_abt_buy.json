@@ -1,0 +1,44 @@
+{
+  "name": "d2_abt_buy",
+  "mode": "linkage",
+  "left": {
+    "path": "../../data/processed/d2_abt_buy/left.csv",
+    "id_column": "id",
+    "text_columns": [
+      "text"
+    ]
+  },
+  "ground_truth": "../../data/processed/d2_abt_buy/truth.csv",
+  "candidates": {
+    "ngram": 3,
+    "top_k": 10,
+    "min_score": 0.0,
+    "indexing": "right"
+  },
+  "partition": "left",
+  "budget_multipliers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "trace_memory": false,
+  "data_provenance": {
+    "repository": "AI-team-UoA/pyJedAI",
+    "commit": "eb446095f921af3207bbefd570cc65e818194419",
+    "paper_counts_match": true
+  },
+  "right": {
+    "path": "../../data/processed/d2_abt_buy/right.csv",
+    "id_column": "id",
+    "text_columns": [
+      "text"
+    ]
+  }
+}

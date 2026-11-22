@@ -1,0 +1,11 @@
+{
+  "matplotlib": "3.11.2",
+  "numpy": "2.5.5",
+  "source_sha256": "1f17ca04545932f99c210e03d9877623fea423396b08c1ab1963e4cf8e3e164a",
+  "input_sha256": {
+    "fixed_baseline_metrics.csv": "12ebadebfd4b56522d4307b2dbf788aa95bf54e9962ba2064d691045bccc32f5",
+    "sweep_metrics.csv": "d70f8c6304cb71e5043b8d88b13ad09903a14dc7c12cb735b720f5b491a117a9",
+    "resource_summary.csv": "fb99fa6334f7bc0984963d89ce5cb64a277d04aae6c4de52837129c5aa468ae4"
+  },
+  "layout": "Portrait panels intended for A4 width; same measured data as main results figures"
+}

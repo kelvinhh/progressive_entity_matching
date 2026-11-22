@@ -1,0 +1,22 @@
+{
+  "name": "replication_stage_2",
+  "datasets": ["d1_restaurants", "d2_abt_buy", "cora_large_variant"],
+  "grid": {
+    "ngram": [3, 5],
+    "top_k": [1, 5, 10],
+    "linkage_indexing": ["left", "right", "both"],
+    "deduplication_indexing": ["right"]
+  },
+  "strategies": ["EC", "BFS", "DFS", "Hybrid"],
+  "budget_multipliers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  "selection_policy": "Descriptive sensitivity analysis of every declared setting. No parameter is selected using these labels for an independent validation claim. Resource measurements use the previously fixed ngram=3, top_k=10, indexing=right baseline.",
+  "resources": {
+    "warmup_blocks": 1,
+    "measured_blocks": 5,
+    "seed": 5003,
+    "hash_seed": "0",
+    "worker_timeout_seconds": 300,
+    "order": "Each block shuffles dataset-stage jobs, executes them sequentially, and uses a fresh process per job.",
+    "memory": "Peak process RSS from resource.getrusage, including interpreter, imports and input loading. Scheduling workers load a common candidate snapshot; candidate workers load source CSVs. No claim of incremental algorithm-only memory."
+  }
+}

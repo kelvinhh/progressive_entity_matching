@@ -1,0 +1,44 @@
+{
+  "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "platform": "macOS-26.7.3-arm64-arm-64bit",
+  "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/configs/benchmarks/d2_abt_buy.json",
+  "mode": "linkage",
+  "source_sha256": {
+    "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+    "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+    "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+    "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+    "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+  },
+  "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+  "input_sha256": {
+    "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+    "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+    "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+  },
+  "load_seconds": 0.006607208000000017,
+  "candidate_seconds": 1.165985917,
+  "left_records": 1076,
+  "right_records": 1076,
+  "ground_truth_pairs": 1076,
+  "resolved_budgets": [
+    1076,
+    2152,
+    3228,
+    4304,
+    5380,
+    6456,
+    7532,
+    8608,
+    9684,
+    10760
+  ],
+  "candidate_count": 10760,
+  "candidate_recall": 0.9869888475836431,
+  "trace_memory": false,
+  "traced_python_peak_bytes_entire_run": null,
+  "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
+  "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
+  "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
+  "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+}

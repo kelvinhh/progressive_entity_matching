@@ -64,7 +64,7 @@
     "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
   },
   "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
-  "executable": "/Library/Developer/CommandLineTools/usr/bin/python3",
+  "executable": "python3",
   "platform": "macOS-26.7.3-arm64-arm-64bit",
   "machine": "arm64",
   "cpu": "arm",
@@ -879,5 +879,6 @@
       "stage": "EC"
     }
   ],
-  "measurement_boundary": "Fresh worker per trial. Stage timer excludes input loading, hashing, result serialization and process startup. RSS is the full worker lifetime peak through the stage, including imports and input loading. Candidate and scheduler memory have different input baselines; no subtraction or algorithm-only memory claim."
+  "measurement_boundary": "Fresh worker per trial. Stage timer excludes input loading, hashing, result serialization and process startup. RSS is the full worker lifetime peak through the stage, including imports and input loading. Candidate and scheduler memory have different input baselines; no subtraction or algorithm-only memory claim.",
+  "filesystem_path_base": "absolute project paths are repository-relative; original config-relative paths keep their base; external paths use anonymous aliases"
 }

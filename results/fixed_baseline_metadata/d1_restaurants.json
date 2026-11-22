@@ -1,7 +1,7 @@
 {
   "python": "3.9.6 (default, May 22 2026, 11:13:45) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
   "platform": "macOS-26.7.3-arm64-arm-64bit",
-  "config_path": "/Users/kelvin/Desktop/progressive_entity_matching/configs/benchmarks/d1_restaurants.json",
+  "config_path": "configs/benchmarks/d1_restaurants.json",
   "mode": "linkage",
   "source_sha256": {
     "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
@@ -12,9 +12,9 @@
   },
   "runner_sha256": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
   "input_sha256": {
-    "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
-    "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
-    "/Users/kelvin/Desktop/progressive_entity_matching/data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+    "data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+    "data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+    "data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
   },
   "load_seconds": 0.004246290999999996,
   "candidate_seconds": 0.062711292,
@@ -40,5 +40,6 @@
   "measurement_notes": "Single run. Python memory tracing is optional; when enabled, peak includes inputs, evaluation and all output rows; not per-strategy RSS. Scheduling measured once at maximum budget. Verification time excluded. Synthetic fixtures are pipeline checks only.",
   "progressive_recall_definition": "sum(recall(b) for b=1..B)/B; constant tail after exhaustion",
   "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
-  "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419"
+  "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419",
+  "filesystem_path_base": "absolute project paths are repository-relative; original config-relative paths keep their base; external paths use anonymous aliases"
 }

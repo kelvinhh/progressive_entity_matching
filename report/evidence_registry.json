@@ -9,7 +9,7 @@
     },
     "E2": {
       "files": {
-        "report/course_requirements.json": "a26ba3aa7b09011d8817d3ee7cab2fc3dc9d59d1df9d4eb50c1114068f09be02"
+        "report/course_requirements.json": "70418cdb9a8a870e01611c2f7718fa3ba93325be4cd3705e11bae187b9e7cdef"
       },
       "machine_status": "opened_or_checked_in_workspace",
       "human_review": "pending"
@@ -39,7 +39,7 @@
     },
     "E6": {
       "files": {
-        "results/resource_manifest.json": "e10410634c6dbd7c4cd00a6508871254c9158f9e2542aacf60a49046e355fa62"
+        "results/resource_manifest.json": "cf52a470ba53bd58eb498b936347d730b78c9392987993db0b35045871870e8f"
       },
       "machine_status": "opened_or_checked_in_workspace",
       "human_review": "pending"
@@ -53,7 +53,7 @@
     },
     "E8": {
       "files": {
-        "results/full_reproduction_verification.json": "cc63bf341ccefcc9fd6049142a823bab73ce6aafb29df4f262db6f19088c8f3c"
+        "results/full_reproduction_verification.json": "46e4de75d0e8a15e99da7732708afd22c09f4c23d18e911c47feb1c34222d24b"
       },
       "machine_status": "opened_or_checked_in_workspace",
       "human_review": "pending"
@@ -64,11 +64,12 @@
         "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
         "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
         "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+        "src/pem/provenance.py": "8f65f480d7201879dd459cd41163549b9d09dcb8589b247513d1b5f60695b24d",
         "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062",
-        "scripts/run_experiment.py": "2b76c421c3bb302baad66fa3c81856979a98a55451d1aa25615e027644a578c2",
+        "scripts/run_experiment.py": "d32b17891f494c3a1e3381f8fe9c26f41bc89d388ecaa9d0a30dc67ff4a9c018",
         "scripts/prepare_benchmarks.py": "a5122080b1fa892e5db19926ac6ed7d0b793c8bb44de4b865b7cde5ec3a839ad",
-        "scripts/run_sweep.py": "c94ea7a293d6c8e61f651798785277da29ac0b15971ddecf77d2f03397541592",
-        "scripts/benchmark_resources.py": "200e9368a8216f7faba2742da78dbaab9052c5cdf7969fe2704fc52313d4ba59"
+        "scripts/run_sweep.py": "b0d28e47f473b6cfbe48bab511434b289f4ab2c8ee282f92ff3baa99c0038869",
+        "scripts/benchmark_resources.py": "75ba4ca2b5d11f6df5eae22a5854e5e9c38d1e2e55ef810f97c9c7c81ca530d2"
       },
       "machine_status": "opened_or_checked_in_workspace",
       "human_review": "pending"
@@ -163,7 +164,7 @@
         "E7",
         "E8"
       ],
-      "content_sha256": "cb7417a8551f71f67f058bf3806c424258f31f7da260bd871da6d731db40c126",
+      "content_sha256": "b0da70cc5399b416a55f27e5192c736aba07ca560f0a711a968171a0e4b62ff6",
       "human_review": "pending"
     },
     {
@@ -312,7 +313,7 @@
         "E8",
         "E9"
       ],
-      "content_sha256": "e2d7f33d856d276326bd37ddba636a7c29aaf2a586893b7046d0009d458da28e",
+      "content_sha256": "7343d4be7f6c1ec984c1923d7c9342151b5bdd38c067ff653d71868f85769aa7",
       "human_review": "pending"
     },
     {
@@ -611,7 +612,7 @@
       "evidence_ids": [
         "E8"
       ],
-      "content_sha256": "7c8356663afb6b3cd352dad9a8268a2a12be7e1a4547a46bcff07cd7da2682fd",
+      "content_sha256": "360f1e006fc63fa55f7dab0aaf1fc142fb486f41e9dbff82e5c1eb29ade4259a",
       "human_review": "pending"
     },
     {

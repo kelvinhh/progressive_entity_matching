@@ -23,6 +23,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from pem.candidates import Candidate, generate_candidates
 from pem.data import read_records, read_truth
 from pem.scheduling import STRATEGIES, schedule
+from pem.provenance import portable_metadata
 
 
 def load_records(config: dict, base: Path):
@@ -153,12 +154,13 @@ def main() -> None:
         print(f"Completed resource block {block + 1}/{blocks} ({'warm-up' if warmup else 'measured'})", flush=True)
     write_csv(ROOT / "results/resource_measurements.csv", rows)
     write_csv(ROOT / "results/resource_summary.csv", summarize(rows))
-    (ROOT / "results/resource_manifest.json").write_text(json.dumps({
+    (ROOT / "results/resource_manifest.json").write_text(json.dumps(portable_metadata({
+        "filesystem_path_base": "absolute project paths are repository-relative; original config-relative paths keep their base; external paths use anonymous aliases",
         "protocol": protocol, "protocol_sha256": hashlib.sha256(args.protocol.read_bytes()).hexdigest(),
         "runner_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "source_sha256": {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
                           for p in sorted((ROOT / "src/pem").glob("*.py"))},
-        "python": sys.version, "executable": sys.executable, "platform": platform.platform(),
+        "python": sys.version, "executable": Path(sys.executable).name, "platform": platform.platform(),
         "machine": platform.machine(), "cpu": platform.processor(),
         "completed_at_utc": datetime.now(timezone.utc).isoformat(),
         "rss_units": "bytes after platform conversion", "datasets": provenance,
@@ -166,7 +168,7 @@ def main() -> None:
         "measurement_boundary": "Fresh worker per trial. Stage timer excludes input loading, hashing, result serialization and process startup. "
                                 "RSS is the full worker lifetime peak through the stage, including imports and input loading. "
                                 "Candidate and scheduler memory have different input baselines; no subtraction or algorithm-only memory claim.",
-    }, indent=2) + "\n")
+    }, ROOT), indent=2) + "\n")
     print(f"Saved {len(rows)} measurements across {len(jobs)} dataset-stage groups", flush=True)
 
 

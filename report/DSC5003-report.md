@@ -15,7 +15,7 @@ The evaluation covers two count-aligned linkage benchmarks and a documented Cora
 | Fixed baseline | 3 datasets × 4 schedulers × 10 budgets = 120 rows |
 | Sensitivity grid | 42 settings × 4 schedulers × 10 budgets = 1,680 rows |
 | Resource trials | 15 dataset/stage groups × 5 measured trials = 75 jobs |
-| Correctness and reproduction | 26 tests; 40 upstream AUC checks; complete grid reproduced |
+| Correctness and reproduction | 28 tests; 40 upstream AUC checks; complete grid reproduced |
 
 <!-- pagebreak -->
 
@@ -82,7 +82,7 @@ These BFS and DFS names describe scheduling of candidate neighborhoods, not ordi
 
 ## 4. Correctness validation and metrics
 
-The local suite has 26 passing tests. It checks hand-computed strategy orders, input-order invariance under ties, budget prefixes, undirected duplicate removal, sparse joins against exhaustive cosine calculation, empty/invalid inputs, ID and label isolation, dataset preparation, grid coverage, resource signatures, and end-to-end demos. These checks support implementation correctness on the covered cases; they are not a proof of equivalence to every upstream workflow.
+The local suite has 28 passing tests. It checks hand-computed strategy orders, input-order invariance under ties, budget prefixes, undirected duplicate removal, sparse joins against exhaustive cosine calculation, empty/invalid inputs, ID and label isolation, dataset preparation, grid coverage, resource signatures, and end-to-end demos. These checks support implementation correctness on the covered cases; they are not a proof of equivalence to every upstream workflow.
 
 Let T be the set of all unique true pairs, C the generated candidates, and R(b) the fraction of T found after the first b comparisons. Candidate recall is |C ∩ T| / |T|. Recall@B uses the actually available prefix, so missing candidates remain false negatives. The perfect oracle is an evaluation device; it does not measure the accuracy of a real verification model.
 
@@ -236,7 +236,7 @@ A third lesson is that reproducibility requires executable preprocessing, explic
 
 ## 9. Reproducibility and deliverable links
 
-An independent source tree and fresh virtual environment with no installed packages or pip passed 26 tests, re-prepared checksum-verified cached inputs, and reproduced all 120 fixed-baseline quality rows. The full check additionally reproduced 1,680 grid rows and completed 75 resource jobs with matching output signatures. The maximum grid quality difference was 0.0e+00. Timing and RSS values are not required to match across repetitions.
+An independent source tree and fresh virtual environment with no installed packages or pip passed 28 tests, re-prepared checksum-verified cached inputs, and reproduced all 120 fixed-baseline quality rows. The full check additionally reproduced 1,680 grid rows and completed 75 resource jobs with matching output signatures. The maximum grid quality difference was 0.0e+00. Timing and RSS values are not required to match across repetitions.
 
 A separate Python 3.12 environment successfully installed the pinned plotting packages from locally reconstructed cached wheels and generated the report figures. That proves fresh offline installation and execution, not access to PyPI. Direct cold-network requests on this execution host failed at DNS resolution, so network acquisition remains unverified here. The ordinary downloader still uses pinned public URLs and verifies hashes.
 

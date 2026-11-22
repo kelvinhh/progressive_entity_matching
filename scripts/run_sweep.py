@@ -13,6 +13,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from run_experiment import run, write_csv
+from pem.provenance import portable_metadata
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -61,13 +62,14 @@ def main() -> None:
         provenance.append({"setting": identifier, "config": config, "metadata": metadata})
         print(f"[{number}/{len(configs)}] {identifier}: candidate recall {rows[0]['candidate_recall']:.4f}", flush=True)
     write_csv(ROOT / "results/sweep_metrics.csv", metrics)
-    (ROOT / "results/sweep_manifest.json").write_text(json.dumps({
+    (ROOT / "results/sweep_manifest.json").write_text(json.dumps(portable_metadata({
+        "filesystem_path_base": "absolute project paths are repository-relative; original config-relative paths keep their base; external paths use anonymous aliases",
         "protocol": protocol, "protocol_sha256": hashlib.sha256(args.protocol.read_bytes()).hexdigest(),
         "runner_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "completed_at_utc": datetime.now(timezone.utc).isoformat(),
         "python": sys.version, "platform": platform.platform(),
         "settings": provenance, "selection": "None; all predeclared settings are reported.",
-    }, indent=2) + "\n")
+    }, ROOT), indent=2) + "\n")
     print(f"Saved {len(configs)} settings and {len(metrics)} metric rows", flush=True)
 
 

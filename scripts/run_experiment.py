@@ -18,6 +18,7 @@ from pem.candidates import generate_candidates
 from pem.data import read_records, read_truth
 from pem.evaluation import evaluate, recall_curve
 from pem.scheduling import STRATEGIES, schedule
+from pem.provenance import portable_metadata
 
 
 def write_csv(path, rows):
@@ -112,6 +113,7 @@ def run(config_path: Path, output: Path) -> list[dict]:
         (output / "orders.csv").write_text("strategy,rank,left_id,right_id,score,is_match\n")
     (output / "config.json").write_text(json.dumps(config, indent=2) + "\n")
     metadata = {
+        "filesystem_path_base": "absolute project paths are repository-relative; original config-relative paths keep their base; external paths use anonymous aliases",
         "python": sys.version, "platform": platform.platform(),
         "config_path": str(config_path), "mode": mode,
         "source_sha256": {str(p.relative_to(Path(__file__).resolve().parents[1])):
@@ -132,7 +134,7 @@ def run(config_path: Path, output: Path) -> list[dict]:
         "pyjedai_auc_definition": "sum(recall(b) for b=1..L)/(L+1), L=min(B,number of candidates); no tail",
         "pyjedai_reference_commit": "eb446095f921af3207bbefd570cc65e818194419",
     }
-    (output / "metadata.json").write_text(json.dumps(metadata, indent=2) + "\n")
+    (output / "metadata.json").write_text(json.dumps(portable_metadata(metadata, Path(__file__).resolve().parents[1]), indent=2) + "\n")
     return rows
 
 

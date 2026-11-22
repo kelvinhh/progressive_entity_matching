@@ -62,7 +62,7 @@
         ],
         [
           "Correctness and reproduction",
-          "26 tests; 40 upstream AUC checks; complete grid reproduced"
+          "28 tests; 40 upstream AUC checks; complete grid reproduced"
         ]
       ],
       "widths": [
@@ -312,7 +312,7 @@
     },
     {
       "type": "paragraph",
-      "text": "The local suite has 26 passing tests. It checks hand-computed strategy orders, input-order invariance under ties, budget prefixes, undirected duplicate removal, sparse joins against exhaustive cosine calculation, empty/invalid inputs, ID and label isolation, dataset preparation, grid coverage, resource signatures, and end-to-end demos. These checks support implementation correctness on the covered cases; they are not a proof of equivalence to every upstream workflow.",
+      "text": "The local suite has 28 passing tests. It checks hand-computed strategy orders, input-order invariance under ties, budget prefixes, undirected duplicate removal, sparse joins against exhaustive cosine calculation, empty/invalid inputs, ID and label isolation, dataset preparation, grid coverage, resource signatures, and end-to-end demos. These checks support implementation correctness on the covered cases; they are not a proof of equivalence to every upstream workflow.",
       "evidence": [
         "E8",
         "E9"
@@ -958,7 +958,7 @@
     },
     {
       "type": "paragraph",
-      "text": "An independent source tree and fresh virtual environment with no installed packages or pip passed 26 tests, re-prepared checksum-verified cached inputs, and reproduced all 120 fixed-baseline quality rows. The full check additionally reproduced 1,680 grid rows and completed 75 resource jobs with matching output signatures. The maximum grid quality difference was 0.0e+00. Timing and RSS values are not required to match across repetitions.",
+      "text": "An independent source tree and fresh virtual environment with no installed packages or pip passed 28 tests, re-prepared checksum-verified cached inputs, and reproduced all 120 fixed-baseline quality rows. The full check additionally reproduced 1,680 grid rows and completed 75 resource jobs with matching output signatures. The maximum grid quality difference was 0.0e+00. Timing and RSS values are not required to match across repetitions.",
       "evidence": [
         "E8"
       ]

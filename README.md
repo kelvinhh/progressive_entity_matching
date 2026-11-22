@@ -117,7 +117,7 @@ Each run writes:
 - `curves.csv`: recall at each actual verification position, including position zero.
 - `orders.csv`: pair ranking, similarity, and oracle outcome for inspection.
 - `config.json`: configuration snapshot.
-- `metadata.json`: input/source hashes, environment, timing boundaries, and whole-run traced Python allocation peak.
+- `metadata.json`: input/source hashes, environment, timing boundaries, and whole-run traced Python allocation peak. Exported absolute project paths become repository-relative paths; external paths use anonymous aliases. Original config-relative paths retain their config-file base.
 
 All strategies share the same candidates and scores. Node-centric linkage scheduling uses the configured partition (`left` by default). Ties use string IDs. `progressive_recall` is `sum(R(b), b=1..B)/B`, with a constant tail after exhaustion. The separate `pyjedai_auc` uses actual emissions L and denominator L+1, without padding. It agrees with the actual pinned upstream method in 40 reference cases; the original experimental dependency version is unknown. See the [audit](docs/replication_audit.md) for metric and Hybrid scheduling differences.
 
@@ -229,7 +229,7 @@ independent datasets or new evidence of matching effectiveness.
 
 ### P2 — Reproduction and Course Submission
 
-- [x] Verify 26 tests, all 120 baseline quality rows, all 1,680 grid rows, and 75 resource jobs in a fresh source tree and empty venv using checksum-verified cached inputs.
+- [x] Verify 28 tests, all 120 baseline quality rows, all 1,680 grid rows, and 75 resource jobs in a fresh source tree and empty venv using checksum-verified cached inputs.
 - [x] Verify fresh offline wheel installation of the pinned plotting/PDF-check dependencies and generate report figures.
 - [ ] Cold external dataset acquisition and online dependency resolution: attempted, but blocked by execution-host DNS resolution failure; no success is claimed.
 - [x] Generate `report/DSC5003-report.pdf`, Markdown, standalone HTML, and reproducible source, covering all technical report sections, measured results, limitations, references, and explicit administrative fields.

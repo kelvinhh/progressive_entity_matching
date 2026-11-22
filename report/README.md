@@ -61,7 +61,7 @@ or runtime configuration need to be installed globally.
 ## Reproduction scope
 
 The complete parameter grid was repeated in a fresh source tree and empty venv:
-26 tests, all 120 fixed-baseline rows, all 1,680 grid rows, and 75 resource jobs
+28 tests, all 120 fixed-baseline rows, all 1,680 grid rows, and 75 resource jobs
 passed their applicable correctness/signature checks. See
 [full reproduction verification](../results/full_reproduction_verification.json).
 Timing and RSS values are not expected to match exactly across repeats.

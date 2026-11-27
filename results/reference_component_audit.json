@@ -1,0 +1,473 @@
+{
+  "reference_repository": "AI-team-UoA/pyJedAI",
+  "reference_commit": "eb446095f921af3207bbefd570cc65e818194419",
+  "scope": "Actual upstream components via AST; shared locally generated candidate scores. Not original TF-IDF/Join fit, full workflow, published-number or timing equivalence.",
+  "random_scheduling": {
+    "graphs": 100,
+    "strategy_budget_cases": 1888,
+    "EC_BFS_DFS_all_agree": true,
+    "Hybrid_differing_cases": 174,
+    "scope": "random bipartite graphs, no deliberately tied scores/means, aligned ID order"
+  },
+  "topk_selection": {
+    "selection_fixtures": [
+      {
+        "fixture": "distinct",
+        "store_neighborhoods": true,
+        "ours_selected": [
+          0,
+          1
+        ],
+        "upstream_selected": [
+          0,
+          1
+        ]
+      },
+      {
+        "fixture": "distinct",
+        "store_neighborhoods": false,
+        "ours_selected": [
+          0,
+          1
+        ],
+        "upstream_selected": [
+          0,
+          1
+        ]
+      },
+      {
+        "fixture": "boundary_tie",
+        "store_neighborhoods": true,
+        "ours_selected": [
+          0,
+          1
+        ],
+        "upstream_selected": [
+          0,
+          1
+        ]
+      },
+      {
+        "fixture": "boundary_tie",
+        "store_neighborhoods": false,
+        "ours_selected": [
+          0,
+          1
+        ],
+        "upstream_selected": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "fixture": "zero_supplied",
+        "store_neighborhoods": true,
+        "ours_selected": [],
+        "upstream_selected": [
+          0,
+          1
+        ]
+      },
+      {
+        "fixture": "zero_supplied",
+        "store_neighborhoods": false,
+        "ours_selected": [],
+        "upstream_selected": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "index_loop_fixtures_shared_scores": [
+      {
+        "fixture": "positive_distinct",
+        "ours_selected": [
+          "b"
+        ],
+        "upstream_selected": [
+          "b"
+        ],
+        "shared_similarity_scores": [
+          0.4480997313625986,
+          0.7121426207783114,
+          0.0
+        ]
+      },
+      {
+        "fixture": "character_overlap_without_3gram_overlap",
+        "ours_selected": [],
+        "upstream_selected": [
+          "a"
+        ],
+        "shared_similarity_scores": [
+          0.0
+        ]
+      },
+      {
+        "fixture": "numeric_row_order_vs_string_id_tie",
+        "ours_selected": [
+          "10"
+        ],
+        "upstream_selected": [
+          "2"
+        ],
+        "shared_similarity_scores": [
+          1.0,
+          1.0
+        ]
+      }
+    ],
+    "score_generation_independently_verified": false
+  },
+  "datasets": [
+    {
+      "dataset": "d1_restaurants",
+      "candidate_count": 3390,
+      "comparisons": [
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "EC",
+          "orders_equal": true,
+          "first_differing_rank": null,
+          "same_candidate_set": true,
+          "ours_at_first_difference": null,
+          "upstream_at_first_difference": null
+        },
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "BFS",
+          "orders_equal": true,
+          "first_differing_rank": null,
+          "same_candidate_set": true,
+          "ours_at_first_difference": null,
+          "upstream_at_first_difference": null
+        },
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "DFS",
+          "orders_equal": true,
+          "first_differing_rank": null,
+          "same_candidate_set": true,
+          "ours_at_first_difference": null,
+          "upstream_at_first_difference": null
+        },
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "Hybrid",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "105",
+            "1887"
+          ],
+          "upstream_at_first_difference": [
+            "227",
+            "1272"
+          ]
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "EC",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "105",
+            "1887"
+          ],
+          "upstream_at_first_difference": [
+            "18",
+            "1228"
+          ]
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "BFS",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "227",
+            "1272"
+          ],
+          "upstream_at_first_difference": [
+            "227",
+            "333"
+          ]
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "DFS",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "227",
+            "1272"
+          ],
+          "upstream_at_first_difference": [
+            "227",
+            "333"
+          ]
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "Hybrid",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "105",
+            "1887"
+          ],
+          "upstream_at_first_difference": [
+            "227",
+            "333"
+          ]
+        }
+      ],
+      "input_sha256": {
+        "data/processed/d1_restaurants/left.csv": "c7855a0158a0a21701e49a5ed9abb2dd3175c0945741a3d0b70501dffa657316",
+        "data/processed/d1_restaurants/right.csv": "17581932107435f957d154102e1b4a23343b6545e5003ac4402409674371fee6",
+        "data/processed/d1_restaurants/truth.csv": "eaa5e6eb11ac5ca79d7d445ba58c6fd7a3a95f7d926e6c2e4ea7cd8563861188"
+      }
+    },
+    {
+      "dataset": "d2_abt_buy",
+      "candidate_count": 10760,
+      "comparisons": [
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "EC",
+          "orders_equal": true,
+          "first_differing_rank": null,
+          "same_candidate_set": true,
+          "ours_at_first_difference": null,
+          "upstream_at_first_difference": null
+        },
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "BFS",
+          "orders_equal": true,
+          "first_differing_rank": null,
+          "same_candidate_set": true,
+          "ours_at_first_difference": null,
+          "upstream_at_first_difference": null
+        },
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "DFS",
+          "orders_equal": true,
+          "first_differing_rank": null,
+          "same_candidate_set": true,
+          "ours_at_first_difference": null,
+          "upstream_at_first_difference": null
+        },
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "Hybrid",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "6",
+            "210"
+          ],
+          "upstream_at_first_difference": [
+            "692",
+            "873"
+          ]
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "EC",
+          "orders_equal": true,
+          "first_differing_rank": null,
+          "same_candidate_set": true,
+          "ours_at_first_difference": null,
+          "upstream_at_first_difference": null
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "BFS",
+          "orders_equal": true,
+          "first_differing_rank": null,
+          "same_candidate_set": true,
+          "ours_at_first_difference": null,
+          "upstream_at_first_difference": null
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "DFS",
+          "orders_equal": true,
+          "first_differing_rank": null,
+          "same_candidate_set": true,
+          "ours_at_first_difference": null,
+          "upstream_at_first_difference": null
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "Hybrid",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "6",
+            "210"
+          ],
+          "upstream_at_first_difference": [
+            "692",
+            "873"
+          ]
+        }
+      ],
+      "input_sha256": {
+        "data/processed/d2_abt_buy/left.csv": "c2be16124b31f530336331923cbc83f70d1a06dc5d08d984114adaceaab1364b",
+        "data/processed/d2_abt_buy/right.csv": "81275b3f8238c0460a3c7999ee69badf24d0c0237552ac2e935bbca1d923d6a5",
+        "data/processed/d2_abt_buy/truth.csv": "00347fda03ac98fc800f32856f2ddb7879cd8465e2a5bdb47a0c100acafa8064"
+      }
+    },
+    {
+      "dataset": "cora_large_variant",
+      "candidate_count": 13079,
+      "comparisons": [
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "EC",
+          "orders_equal": true,
+          "first_differing_rank": null,
+          "same_candidate_set": true,
+          "ours_at_first_difference": null,
+          "upstream_at_first_difference": null
+        },
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "BFS",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "1359",
+            "1372"
+          ],
+          "upstream_at_first_difference": [
+            "1173",
+            "1174"
+          ]
+        },
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "DFS",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "1359",
+            "1372"
+          ],
+          "upstream_at_first_difference": [
+            "1173",
+            "1174"
+          ]
+        },
+        {
+          "id_encoding": "aligned_id_order",
+          "strategy": "Hybrid",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "1000",
+            "999"
+          ],
+          "upstream_at_first_difference": [
+            "1173",
+            "1174"
+          ]
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "EC",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "1000",
+            "999"
+          ],
+          "upstream_at_first_difference": [
+            "2",
+            "3"
+          ]
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "BFS",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "1359",
+            "1372"
+          ],
+          "upstream_at_first_difference": [
+            "1173",
+            "1174"
+          ]
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "DFS",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "1359",
+            "1372"
+          ],
+          "upstream_at_first_difference": [
+            "1173",
+            "1174"
+          ]
+        },
+        {
+          "id_encoding": "native_record_order",
+          "strategy": "Hybrid",
+          "orders_equal": false,
+          "first_differing_rank": 1,
+          "same_candidate_set": true,
+          "ours_at_first_difference": [
+            "1000",
+            "999"
+          ],
+          "upstream_at_first_difference": [
+            "1173",
+            "1174"
+          ]
+        }
+      ],
+      "input_sha256": {
+        "data/processed/cora_large_variant/left.csv": "84546236973f2a7e3156d8abcef0927b803741da0d5d2b7a89c5aa74e1b0c03e",
+        "data/processed/cora_large_variant/truth.csv": "ef03a6e8b26e5a60a187bd9ee4e9694489fd1afd37eaf3f6120f993154827c45"
+      }
+    }
+  ],
+  "source_sha256": {
+    "src/pyjedai/utils.py": "cbe46ce9b5ac4a024c1b12c4fbc04c1194b2155a815977a6af9824031d49ae2e",
+    "src/pyjedai/evaluation.py": "a2dae4f4916f46bc67417ddc611bc4f82beaba05e75a819bb679eee6315d659a",
+    "src/pyjedai/joins.py": "a2ec8325e6f8b53495689b85feb8e7a525aa72fd8bc3061934d48f10420a0028"
+  },
+  "independent_implementation_sha256": {
+    "src/pem/__init__.py": "cd5534709c2f8477774e1e9c528572e626a4b2ff90480cebef1aaaf216d19f60",
+    "src/pem/candidates.py": "ad7d7ca13c5160228947b60a8d99139a30147a4a0ab630cbc40211b75319586e",
+    "src/pem/data.py": "ce584dcb629e9e38a65f15e6f65ddfac1a7d6c6f73b55ba4e0e6c59d71534a84",
+    "src/pem/evaluation.py": "b20c0d7009cd5eb5e3583d6435a91593cf51a6f99e5e71bf95cd5c24fbba3669",
+    "src/pem/provenance.py": "8f65f480d7201879dd459cd41163549b9d09dcb8589b247513d1b5f60695b24d",
+    "src/pem/scheduling.py": "00a0988b272339d16d5c6a91398b46dd319dd8823244f4116ca41dc7b8c90062"
+  },
+  "audit_script_sha256": "191a6899893996420e8ea1c098281fd98ec42e94244a833fa241224ce97f9e59",
+  "real_data_metric_checks": 480
+}

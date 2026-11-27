@@ -96,6 +96,10 @@ For fixed-budget PR, recall stays constant after candidates are exhausted; at B=
 
 The compatible metric was checked on 40 cases against the actual checksum-verified _generate_auc_data method extracted through Python AST, with tolerance 1e-12. A tie-free bipartite fixture also confirms EC/TOP, BFS, and DFS agreement while exposing the expected Hybrid/HB difference. Compatibility is bounded to batch size one and no label-based early-stop mode; the library revision used for the original paper is unknown.
 
+An expanded source audit checks 1,888 strategy/budget cases on 100 random bipartite graphs, three real shared candidate graphs, 480 real-data AUC values, and nine Join fixtures. With aligned ID ordering, EC/BFS/DFS match the full D1 and D2 sequences. Cora's node-centric sequences differ because our deduplication neighborhoods include both endpoints while the upstream driver inserts only the smaller endpoint. Numeric versus string-ID ties also change some sequences. These are component checks with shared locally generated scores, not a run of the complete original pipeline.
+
+Candidate construction also differs: upstream's vectorizer path indexes individual characters, permitting zero-score pairs without shared q-grams. Its no-neighborhood-cache selection path can retain more than k tied neighbors, whereas our join always keeps at most k positive-overlap neighbors per query. Upstream selection favors numeric target IDs; ours uses string IDs. Exact upstream vectorization and full end-to-end equivalence remain unverified. Existing experiments evaluate the declared independent variant.
+
 ## 5. Experimental setup
 
 | Dataset | Records | Unique true pairs | Relation to paper |

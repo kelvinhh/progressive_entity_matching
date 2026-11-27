@@ -14,7 +14,7 @@ file does not pin a version. Therefore the selected reference is **not establish
 as the software revision used to produce the paper**.
 
 Source locations and SHA-256 / Git blob hashes are in
-[`configs/benchmark_sources.json`](../configs/benchmark_sources.json). All 13 fetched
+[`configs/benchmark_sources.json`](../configs/benchmark_sources.json). All 14 fetched
 files matched their Git blob SHA, SHA-256, and expected byte length. Raw data and
 reference code remain untracked in `data/raw/pyjedai/`.
 
@@ -59,6 +59,86 @@ tie-free bipartite fixture. EC/TOP, BFS and DFS agree on that fixture; Hybrid/HB
 differs as expected. This is a specific fixture comparison, not an exhaustive
 proof of scheduler equivalence. Ties and the handling of bidirectional/undirected
 candidate sets remain explicitly defined by our own implementation.
+
+## Expanded executable component audit (23 November 2026)
+
+Run `python3 scripts/audit_reference.py` after preparing the benchmark inputs.
+The script executes checksum-verified upstream scheduler classes, the AUC method,
+and Join selection/index loops. Shared locally generated scores isolate component
+behavior. This does **not** execute the original vectorizer, Data adapter, full
+Join `fit`, or experiment drivers, or establish timing/published-number equivalence.
+
+Artifacts: [component audit](../results/reference_component_audit.json) and
+[all metric comparisons](../results/reference_component_metrics.csv).
+
+On 100 seeded random bipartite graphs, 1,888 strategy/budget cases were checked,
+including zero, short, exact-length, and beyond-exhaustion budgets. All EC/BFS/DFS
+cases agreed; Hybrid differed in 174 cases. These graphs do not deliberately
+exercise tied scores or tied node means.
+
+All three real baseline candidate graphs were passed to the actual upstream
+schedulers. Each full output retains exactly the same candidate set. Two ID
+mappings were compared: lexicographic IDs mapped to integers (aligned tie order),
+and original CSV row positions (native upstream tie order).
+
+| Shared candidate graph | Aligned ID order: identical full sequences | Differences |
+| --- | --- | --- |
+| D1 Restaurants, 3,390 edges | EC, BFS, DFS | Hybrid differs from rank 1 |
+| D2 Abt–Buy, 10,760 edges | EC, BFS, DFS | Hybrid differs from rank 1 |
+| Cora variant, 13,079 edges | EC | BFS, DFS, Hybrid differ from rank 1 |
+
+Native row IDs also change EC/BFS/DFS on D1 and EC on Cora. Our deterministic
+string-ID tie rule is not equivalent to numeric row IDs. The upstream mean-weight
+sort preserves neighborhood insertion order for equal means; ours breaks equal
+means by ID. The matching aligned-order results are conditional, not a universal
+equivalence proof.
+
+For deduplication, the inspected `ProgressiveMatching._schedule_candidates`
+orders each pair's endpoints and inserts only the smaller endpoint's neighborhood.
+Our implementation inserts both endpoint neighborhoods and suppresses repeated
+emissions. The Cora comparison feeds canonical edges to the upstream insertion
+convention; it does not recreate original candidate discovery. Different
+neighborhood definitions explain the node-centric scheduler discrepancies.
+
+There are 480 real-data metric rows: three datasets, two ID mappings, four
+strategies, ten budgets, two implementations. Every compatible AUC value was
+checked against the actual upstream method within 1e-12. Both sides' fixed-budget
+PR uses our evaluator to hold the integration convention constant. These rows
+are separate from the existing experimental baseline.
+
+The Hybrid difference affects results. With aligned IDs on D1 at B=89, our
+paper-described variant has Recall=0.089888 versus upstream HB's 0.011236. On D2
+at B=1,076, both recall 0.847584, but fixed-budget PR is 0.451510 versus 0.413871.
+Identical recall therefore need not imply identical progressive behavior.
+
+### Candidate construction findings
+
+The newly pinned `joins.py` is from the same commit, Git blob
+`7069c4feb6c294f30c80f0ec56c0899cebff1238`; hashes and size are in the manifest.
+Actual `PETopKJoin` selection was run on six score fixtures, plus three fixtures
+executing its character-index/query loops with shared TF-IDF scores.
+
+- `store_neighborhoods=True` retains at most k neighbors, favoring smaller numeric
+  target IDs on tied scores; ours favors string IDs.
+- `store_neighborhoods=False` inserts every candidate at or above the k-th score;
+  boundary ties can yield more than k neighbors. Ours always retains at most k
+  positive-overlap neighbors per query.
+- With a vectorizer, `_tokenize_entity` returns a lowercase string, and the
+  inverted index iterates individual characters. It can retrieve shared-character
+  pairs without shared q-grams. The executable `abc`/`abd` 3-gram fixture emits
+  a zero-score upstream candidate while ours emits none, under shared scores.
+- `FrequencyEvaluator` uses scikit-learn TF-IDF fitted to both sources, supporting
+  the same broad weighting choice. Exact vector scores and normalization remain
+  unverified against that implementation because its dependency environment was
+  not run.
+- The pinned frequency evaluator rejects a missing second source, and
+  `PETopKJoin.setup_indexing` expects source two. Our Cora TF-IDF join is an
+  independently supported deduplication variant, not a verified identical
+  execution of this pinned library's TF-IDF workflow.
+
+No algorithm was changed to erase these discrepancies. Existing measured results
+remain those of the documented independent implementation; this audit qualifies
+their relationship to the reference code.
 
 ## Real datasets and preparation
 

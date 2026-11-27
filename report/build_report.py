@@ -103,6 +103,8 @@ def main():
     code("Fixed-budget PR@B = (R(1) + ... + R(B)) / B\nPinned pyJedAI AUC = (R(1) + ... + R(L)) / (L + 1)\nL = min(B, number of available candidates)", "E9", "E7")
     p("For fixed-budget PR, recall stays constant after candidates are exhausted; at B=0 the value is zero. The compatible pyJedAI column has no padded tail and uses actual emissions plus one in the denominator. For example, one true emission out of two total matches with B=4 gives fixed-budget PR=0.5 and compatible AUC=0.25. These are separately named columns and are never interchanged.", "E9", "E7")
     p(f"The compatible metric was checked on {reference['verified_cases']} cases against the actual checksum-verified _generate_auc_data method extracted through Python AST, with tolerance 1e-12. A tie-free bipartite fixture also confirms EC/TOP, BFS, and DFS agreement while exposing the expected Hybrid/HB difference. Compatibility is bounded to batch size one and no label-based early-stop mode; the library revision used for the original paper is unknown.", "E7", "E14")
+    p("An expanded source audit checks 1,888 strategy/budget cases on 100 random bipartite graphs, three real shared candidate graphs, 480 real-data AUC values, and nine Join fixtures. With aligned ID ordering, EC/BFS/DFS match the full D1 and D2 sequences. Cora's node-centric sequences differ because our deduplication neighborhoods include both endpoints while the upstream driver inserts only the smaller endpoint. Numeric versus string-ID ties also change some sequences. These are component checks with shared locally generated scores, not a run of the complete original pipeline.", "E17")
+    p("Candidate construction also differs: upstream's vectorizer path indexes individual characters, permitting zero-score pairs without shared q-grams. Its no-neighborhood-cache selection path can retain more than k tied neighbors, whereas our join always keeps at most k positive-overlap neighbors per query. Upstream selection favors numeric target IDs; ours uses string IDs. Exact upstream vectorization and full end-to-end equivalence remain unverified. Existing experiments evaluate the declared independent variant.", "E17", "E14")
 
     h("5. Experimental setup")
     dataset_rows = [["Dataset", "Records", "Unique true pairs", "Relation to paper"]]
@@ -245,6 +247,7 @@ def main():
         "E12": ["report/team_metadata.json"], "E13": ["report/delivery_context.json"],
         "E14": ["configs/benchmark_sources.json", "docs/replication_audit.md"], "E15": ["report/delivery_context.json"],
         "E16": ["results/stage2_analysis.md"],
+        "E17": ["scripts/audit_reference.py", "results/reference_component_audit.json", "results/reference_component_metrics.csv", "docs/replication_audit.md"],
     }
     evidence = {key: {"files": {path: hashlib.sha256((ROOT / path).read_bytes()).hexdigest() for path in paths},
                       "machine_status": "opened_or_checked_in_workspace", "human_review": "pending"}

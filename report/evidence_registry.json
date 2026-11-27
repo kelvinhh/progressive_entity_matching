@@ -104,8 +104,8 @@
     },
     "E14": {
       "files": {
-        "configs/benchmark_sources.json": "94dda0bc4caf34127ceaa9da2d8148dd2d688c838d8c440cc46ee1f1660897fe",
-        "docs/replication_audit.md": "07843524e0a64a07973878451a381e3a521e482d873a3075ad704c7c4d3846bf"
+        "configs/benchmark_sources.json": "803e2a3b001b8b8321d5bad09aea273fc452f999d64d90836c6abf680b0f9a6b",
+        "docs/replication_audit.md": "df6ffbc786e9d8b0578f407aa0c18b72abb4d9a0a6308e47acf4dc961454e94b"
       },
       "machine_status": "opened_or_checked_in_workspace",
       "human_review": "pending"
@@ -120,6 +120,16 @@
     "E16": {
       "files": {
         "results/stage2_analysis.md": "22d5fc40b54cf2e8970ae21b85476f4229c392f55c91fea7faadfd47857a8296"
+      },
+      "machine_status": "opened_or_checked_in_workspace",
+      "human_review": "pending"
+    },
+    "E17": {
+      "files": {
+        "scripts/audit_reference.py": "191a6899893996420e8ea1c098281fd98ec42e94244a833fa241224ce97f9e59",
+        "results/reference_component_audit.json": "540bb817d141f26282cb8e7cdfa69aecc0d158c7e9b16473ad9f8aa55b4ca21e",
+        "results/reference_component_metrics.csv": "5531a439677157a1199ac3e98ea90baaa51f1ae41036e45acb942dff55cf2c64",
+        "docs/replication_audit.md": "df6ffbc786e9d8b0578f407aa0c18b72abb4d9a0a6308e47acf4dc961454e94b"
       },
       "machine_status": "opened_or_checked_in_workspace",
       "human_review": "pending"
@@ -353,7 +363,24 @@
       "human_review": "pending"
     },
     {
+      "block": 35,
+      "evidence_ids": [
+        "E17"
+      ],
+      "content_sha256": "1f28071d0b067c3f32ad3c1fce5711bf09c86fed2882336d6958c373d805b189",
+      "human_review": "pending"
+    },
+    {
       "block": 36,
+      "evidence_ids": [
+        "E17",
+        "E14"
+      ],
+      "content_sha256": "e30085329cb4d82ef034ed5d49ae1f90526a77c61c2a48a171cb4374b316fa1d",
+      "human_review": "pending"
+    },
+    {
+      "block": 38,
       "evidence_ids": [
         "E14"
       ],
@@ -361,7 +388,7 @@
       "human_review": "pending"
     },
     {
-      "block": 37,
+      "block": 39,
       "evidence_ids": [
         "E14",
         "E1"
@@ -370,7 +397,7 @@
       "human_review": "pending"
     },
     {
-      "block": 38,
+      "block": 40,
       "evidence_ids": [
         "E3",
         "E4",
@@ -380,7 +407,7 @@
       "human_review": "pending"
     },
     {
-      "block": 39,
+      "block": 41,
       "evidence_ids": [
         "E5",
         "E6"
@@ -389,7 +416,7 @@
       "human_review": "pending"
     },
     {
-      "block": 40,
+      "block": 42,
       "evidence_ids": [
         "E5",
         "E6"
@@ -398,7 +425,7 @@
       "human_review": "pending"
     },
     {
-      "block": 41,
+      "block": 43,
       "evidence_ids": [
         "E6",
         "E10",
@@ -408,7 +435,7 @@
       "human_review": "pending"
     },
     {
-      "block": 44,
+      "block": 46,
       "evidence_ids": [
         "E3"
       ],
@@ -416,7 +443,7 @@
       "human_review": "pending"
     },
     {
-      "block": 45,
+      "block": 47,
       "evidence_ids": [
         "E3"
       ],
@@ -424,7 +451,7 @@
       "human_review": "pending"
     },
     {
-      "block": 46,
+      "block": 48,
       "evidence_ids": [
         "E3"
       ],
@@ -432,7 +459,7 @@
       "human_review": "pending"
     },
     {
-      "block": 47,
+      "block": 49,
       "evidence_ids": [
         "E3",
         "E16"
@@ -441,7 +468,7 @@
       "human_review": "pending"
     },
     {
-      "block": 48,
+      "block": 50,
       "evidence_ids": [
         "E3"
       ],
@@ -449,7 +476,7 @@
       "human_review": "pending"
     },
     {
-      "block": 50,
+      "block": 52,
       "evidence_ids": [
         "E3",
         "E10"
@@ -458,7 +485,7 @@
       "human_review": "pending"
     },
     {
-      "block": 53,
+      "block": 55,
       "evidence_ids": [
         "E4"
       ],
@@ -466,7 +493,7 @@
       "human_review": "pending"
     },
     {
-      "block": 54,
+      "block": 56,
       "evidence_ids": [
         "E4"
       ],
@@ -474,7 +501,7 @@
       "human_review": "pending"
     },
     {
-      "block": 55,
+      "block": 57,
       "evidence_ids": [
         "E4"
       ],
@@ -482,7 +509,7 @@
       "human_review": "pending"
     },
     {
-      "block": 57,
+      "block": 59,
       "evidence_ids": [
         "E4",
         "E10"
@@ -491,7 +518,7 @@
       "human_review": "pending"
     },
     {
-      "block": 60,
+      "block": 62,
       "evidence_ids": [
         "E4",
         "E10"
@@ -500,7 +527,7 @@
       "human_review": "pending"
     },
     {
-      "block": 63,
+      "block": 65,
       "evidence_ids": [
         "E5"
       ],
@@ -508,7 +535,7 @@
       "human_review": "pending"
     },
     {
-      "block": 64,
+      "block": 66,
       "evidence_ids": [
         "E5",
         "E6"
@@ -517,7 +544,7 @@
       "human_review": "pending"
     },
     {
-      "block": 65,
+      "block": 67,
       "evidence_ids": [
         "E5"
       ],
@@ -525,7 +552,7 @@
       "human_review": "pending"
     },
     {
-      "block": 67,
+      "block": 69,
       "evidence_ids": [
         "E5",
         "E6",
@@ -535,7 +562,7 @@
       "human_review": "pending"
     },
     {
-      "block": 70,
+      "block": 72,
       "evidence_ids": [
         "E1",
         "E9"
@@ -544,7 +571,7 @@
       "human_review": "pending"
     },
     {
-      "block": 71,
+      "block": 73,
       "evidence_ids": [
         "E1",
         "E3",
@@ -556,7 +583,7 @@
       "human_review": "pending"
     },
     {
-      "block": 72,
+      "block": 74,
       "evidence_ids": [
         "E3",
         "E4",
@@ -568,7 +595,7 @@
       "human_review": "pending"
     },
     {
-      "block": 73,
+      "block": 75,
       "evidence_ids": [
         "E14",
         "E15"
@@ -577,7 +604,7 @@
       "human_review": "pending"
     },
     {
-      "block": 75,
+      "block": 77,
       "evidence_ids": [
         "E3",
         "E4",
@@ -587,7 +614,7 @@
       "human_review": "pending"
     },
     {
-      "block": 76,
+      "block": 78,
       "evidence_ids": [
         "E1",
         "E7",
@@ -597,7 +624,7 @@
       "human_review": "pending"
     },
     {
-      "block": 77,
+      "block": 79,
       "evidence_ids": [
         "E4",
         "E6",
@@ -608,7 +635,7 @@
       "human_review": "pending"
     },
     {
-      "block": 79,
+      "block": 81,
       "evidence_ids": [
         "E8"
       ],
@@ -616,7 +643,7 @@
       "human_review": "pending"
     },
     {
-      "block": 80,
+      "block": 82,
       "evidence_ids": [
         "E11",
         "E15"
@@ -625,7 +652,7 @@
       "human_review": "pending"
     },
     {
-      "block": 81,
+      "block": 83,
       "evidence_ids": [
         "E9"
       ],
@@ -633,7 +660,7 @@
       "human_review": "pending"
     },
     {
-      "block": 82,
+      "block": 84,
       "evidence_ids": [
         "E9",
         "E12"
@@ -642,7 +669,7 @@
       "human_review": "pending"
     },
     {
-      "block": 83,
+      "block": 85,
       "evidence_ids": [
         "E15"
       ],
@@ -650,7 +677,7 @@
       "human_review": "pending"
     },
     {
-      "block": 84,
+      "block": 86,
       "evidence_ids": [
         "E15"
       ],
@@ -658,7 +685,7 @@
       "human_review": "pending"
     },
     {
-      "block": 86,
+      "block": 88,
       "evidence_ids": [
         "E1"
       ],
@@ -666,7 +693,7 @@
       "human_review": "pending"
     },
     {
-      "block": 87,
+      "block": 89,
       "evidence_ids": [
         "E14"
       ],
@@ -674,7 +701,7 @@
       "human_review": "pending"
     },
     {
-      "block": 88,
+      "block": 90,
       "evidence_ids": [
         "E14"
       ],
@@ -682,7 +709,7 @@
       "human_review": "pending"
     },
     {
-      "block": 89,
+      "block": 91,
       "evidence_ids": [
         "E2"
       ],
@@ -690,7 +717,7 @@
       "human_review": "pending"
     },
     {
-      "block": 90,
+      "block": 92,
       "evidence_ids": [
         "E13"
       ],
@@ -698,7 +725,7 @@
       "human_review": "pending"
     },
     {
-      "block": 92,
+      "block": 94,
       "evidence_ids": [
         "E2",
         "E12",

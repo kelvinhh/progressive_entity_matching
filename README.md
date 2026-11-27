@@ -208,6 +208,8 @@ Routine edits to existing project notes do not require a new literature search.
 - [x] Pin source versions and hashes, record preprocessing, and add repeatable conversion scripts with input validation.
 - [x] Check the pinned reference's AUC method; document differences and verify 40 cases against the actual method.
 - [x] Audit paper-versus-code scheduling and record candidate-generation conventions, with section/code references and a fixture demonstrating the Hybrid discrepancy.
+- [x] Expand executable source checks to 100 random graphs (1,888 strategy/budget cases), three real shared candidate graphs, 480 AUC checks, and nine Join fixtures; document Hybrid, deduplication, tie-order, zero-score, and top-k differences in [the source audit](docs/replication_audit.md#expanded-executable-component-audit-23-november-2026). Run `python3 scripts/audit_reference.py` after benchmark preparation.
+- [ ] Run the complete original dependency environment with matched preprocessing and candidate generation; current component checks do not establish end-to-end equivalence.
 - [x] Add real-data configurations and the paper's budgets `B = i * |ground_truth|` for `i = 1, ..., 10`.
 - [x] Run the first four-strategy comparisons on identical candidates and weights, recording candidate recall; save 120 metric rows.
 - [ ] Resolve dataset-specific usage terms; the mirror's software license is not assumed to cover benchmark data.
